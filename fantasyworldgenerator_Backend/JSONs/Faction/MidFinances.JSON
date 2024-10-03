@@ -1,0 +1,311 @@
+{
+    "Herblore and potion production": [
+        "Potion maker",
+        "Herbalist",
+        "Alchemist",
+        "Elixir brewer",
+        "Herb cultivator"
+    ],
+    "Livestock breeding and trade": [
+        "Livestock breeder",
+        "Cattle trader",
+        "Sheep breeder",
+        "Horse trader"
+    ],
+    "Mined resources and metalworking": [
+        "Miner",
+        "Metalsmith",
+        "Ore extractor",
+        "Smelter"
+    ],
+    "Cartography and exploration": [
+        "Map maker",
+        "Explorer",
+        "Surveyor"
+    ],
+    "Blacksmithing and armor creation": [
+        "Armor smith",
+        "Weapon smith",
+        "Blacksmith",
+        "Armorer",
+        "Metalworker"
+    ],
+    "Woodworking and furniture making": [
+        "Furniture maker",
+        "Carpenter",
+        "Woodworker",
+        "Cabinetmaker",
+        "Joiner"
+    ],
+    "Leatherworking and crafting": [
+        "Leatherworker",
+        "Saddle maker",
+        "Leather craftsman",
+        "Tanner",
+        "Hide processor"
+    ],
+    "Textile production and trade": [
+        "Textile weaver",
+        "Cloth trader",
+        "Fabric weaver",
+        "Textile merchant"
+    ],
+    "Food production and distribution": [
+        "Farmer",
+        "Food distributor",
+        "Baker",
+        "Grocer",
+        "Butcher"
+    ],
+    "Brewing and winemaking": [
+        "Brewer",
+        "Winemaker",
+        "Ale brewer",
+        "Distiller"
+    ],
+    "Fishing and aquaculture": [
+        "Fisherman",
+        "Fish farmer",
+        "Net weaver",
+        "Aquaculturist"
+    ],
+    "Timber harvesting and lumber": [
+        "Lumberjack",
+        "Sawyer",
+        "Timber supplier",
+        "Wood harvester"
+    ],
+    "Fur trading": [
+        "Fur trader",
+        "Trapper",
+        "Furrier",
+        "Pelt merchant"
+    ],
+    "Silk production": [
+        "Silk weaver",
+        "Silk spinner",
+        "Silk trader"
+    ],
+    "Dye production": [
+        "Dyer",
+        "Dye merchant",
+        "Dye maker"
+    ],
+    "Papermaking": [
+        "Papermaker",
+        "Pulp processor",
+        "Paper mill worker"
+    ],
+    "Book publishing and trade": [
+        "Bookbinder",
+        "Book seller",
+        "Publisher"
+    ],
+    "Musical instrument creation and performance": [
+        "Luthier (instrument maker)",
+        "Harp maker",
+        "Fiddle maker"
+    ],
+    "Puppetry and theatrical performances": [
+        "Puppeteer",
+        "Theater performer",
+        "Stagehand"
+    ],
+    "Gambling establishments and lotteries": [
+        "Gambling house operator",
+        "Dice maker",
+        "Card dealer",
+        "Lottery organizer"
+    ],
+    "Festivals and fairs": [
+        "Festival organizer",
+        "Event planner",
+        "Fairground vendor",
+        "Entertainment coordinator"
+    ],
+    "Blacksmithing": [
+        "Blacksmith",
+        "Ironworker",
+        "Forge worker",
+        "Tool maker"
+    ],
+    "Leatherworking": [
+        "Leatherworker",
+        "Harness maker",
+        "Glovemaker",
+        "Bootmaker"
+    ],
+    "Pottery": [
+        "Potter",
+        "Ceramics maker",
+        "Clay sculptor"
+    ],
+    "Masonry": [
+        "Mason",
+        "Stone cutter",
+        "Bricklayer",
+        "Stone carver"
+    ],
+    "Carpentering": [
+        "Carpenter",
+        "Framer",
+        "Woodworker",
+        "Joiner"
+    ],
+    "Shipbuilding": [
+        "Shipwright",
+        "Boat builder",
+        "Sailmaker"
+    ],
+    "Tailoring": [
+        "Tailor",
+        "Seamstress",
+        "Dressmaker",
+        "Garment maker"
+    ],
+    "Physician": [
+        "Doctor",
+        "Healer",
+        "Medic"
+    ],
+    "Teaching": [
+        "Teacher",
+        "Tutor",
+        "Schoolmaster"
+    ],
+    "Accounting": [
+        "Bookkeeper",
+        "Tax collector",
+        "Ledger clerk"
+    ],
+    "Engineering": [
+        "Engineer",
+        "Mechanic",
+        "Surveyor"
+    ],
+    "Architecting": [
+        "Architect",
+        "Planner",
+        "Builder"
+    ],
+    "Apothecary": [
+        "Apothecary",
+        "Pharmacist",
+        "Herbalist",
+        "Herb gatherer"
+    ],
+    "Herbalism": [
+        "Herbalist",
+        "Herb gatherer",
+        "Herb cultivator"
+    ],
+    "Milling": [
+        "Miller",
+        "Flour miller",
+        "Grain mill operator"
+    ],
+    "Grain storage and trade": [
+        "Grain merchant",
+        "Grain trader"
+    ],
+    "Lumber milling": [
+        "Sawyer",
+        "Lumber mill worker",
+        "Wood miller"
+    ],
+    "Quarrying": [
+        "Quarry worker",
+        "Stone miner",
+        "Rock splitter"
+    ],
+    "Stone carving": [
+        "Stone carver",
+        "Sculptor"
+    ],
+    "Millinery (hat making)": [
+        "Hat maker",
+        "Milliner"
+    ],
+    "Tanning": [
+        "Tanner",
+        "Leather tanner",
+        "Hide processor"
+    ],
+    "Roadside innkeeping": [
+        "Roadside innkeeper",
+        "Travel lodge owner",
+        "Roadside host"
+    ],
+    "Peddling": [
+        "Peddler",
+        "Wandering merchant",
+        "Street seller"
+    ],
+    "Drapery making": [
+        "Draper",
+        "Curtain maker",
+        "Textile draper"
+    ],
+    "Spice trade": [
+        "Spice merchant",
+        "Spice trader",
+        "Herb and spice dealer"
+    ],
+    "Toll collection": [
+        "Toll collector",
+        "Road toll operator"
+    ],
+    "Mercenary services": [
+        "Mercenary",
+        "Soldier for hire"
+    ],
+    "Apprentice training (crafts)": [
+        "Apprentice trainer (blacksmithing)",
+        "Apprentice trainer (carpentry)"
+    ],
+    "Travel guide services": [
+        "Tour guide",
+        "Travel guide"
+    ],
+    "Fortune telling": [
+        "Fortune teller"
+    ],
+    "Candle making": [
+        "Candle maker"
+    ],
+    "Soap making": [
+        "Soap maker"
+    ],
+    "Horse trading": [
+        "Horse trader"
+    ],
+    "Wagon making": [
+        "Wagon maker"
+    ],
+    "Rope making": [
+        "Rope maker"
+    ],
+    "Wheelwrighting": [
+        "Wheelwright"
+    ],
+    "Sign painting": [
+        "Sign painter"
+    ],
+    "Book binding": [
+        "Bookbinder",
+        "Book repairer",
+        "Book artisan",
+        "Binder craftsman"
+    ],
+    "Baker": [
+        "Baker",
+        "Pastry chef",
+        "Bread maker",
+        "Confectioner"
+    ],
+    "Painting": [
+        "Painter",
+        "House painter",
+        "Mural artist"
+    ]
+}

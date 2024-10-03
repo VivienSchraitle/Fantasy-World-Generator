@@ -1,0 +1,1016 @@
+[
+    {
+        "DefaultSkinColor": [
+            "Pale White",
+            "Ivory",
+            "Warm Ivory",
+            "Porcelain",
+            "Pale Ivory",
+            "Sienna",
+            "Sand",
+            "Beige",
+            "Warm Beige",
+            "Golden",
+            "Honey",
+            "Bronze",
+            "Almond",
+            "Mahogany",
+            "Deep Brown",
+            "Ebony"
+        ],
+        "DefaultUndertones": [
+            "Warm Undertones",
+            "Cool Undertones",
+            "Neutral Undertones"
+        ],
+        "DefaultHairColor": [
+            "Black",
+            "Dark Brown",
+            "Medium Brown",
+            "Light Brown",
+            "Chestnut",
+            "Auburn",
+            "Dark Blonde",
+            "Strawberry Blonde",
+            "Blonde",
+            "Platinum Blonde",
+            "Gray",
+            "White",
+            "Red",
+            "Copper",
+            "Silver"
+        ],
+        "DefaultHairstyles": [
+            "Buzz Cut",
+            "Crew Cut",
+            "Undercut",
+            "Pompadour",
+            "Fade",
+            "Afro",
+            "Braids",
+            "Cornrows",
+            "Bob",
+            "Pixie Cut",
+            "Bun",
+            "Ponytail",
+            "Mohawk",
+            "Shag",
+            "Layered",
+            "Curly",
+            "Wavy",
+            "Straight",
+            "Updo",
+            "Dreadlocks",
+            "French Twist",
+            "Chignon",
+            "Side Part",
+            "Top Knot",
+            "Beach Waves",
+            "Fringe",
+            "Mullet",
+            "Quiff",
+            "Bowl Cut",
+            "Faux Hawk",
+            "Long Layers",
+            "High and Tight",
+            "Taper Cut",
+            "Finger Waves",
+            "Curtain Bangs",
+            "Asymmetrical Bob",
+            "Blunt Cut",
+            "Pageboy",
+            "Space Buns",
+            "Victory Rolls",
+            "Twists",
+            "Flat Top",
+            "Half-Up Half-Down",
+            "Dutch Braids",
+            "French Braid",
+            "Fishtail Braid",
+            "Box Braids",
+            "Halo Braid",
+            "Crown Braid",
+            "Slicked Back",
+            "Messy Bun",
+            "Pigtails",
+            "Top Fade",
+            "Buzzed Mohawk"
+        ],
+        "DefaultEyeColor": [
+            "Brown",
+            "Dark Brown",
+            "Light Brown",
+            "Hazel",
+            "Amber",
+            "Green",
+            "Light Blue",
+            "Dark Blue",
+            "Gray",
+            "Black"
+        ],
+        "AdjectiveSizes": [
+            "Cut off",
+            "Very Short",
+            "Short",
+            "Rather Short",
+            "About Average",
+            "Somewhat Long",
+            "Long",
+            "Very Long",
+            "Massive",
+            "Glorious"
+        ]
+    },
+    {
+        "Name": "Human",
+        "LH": 100,
+        "SizeAvg": 4.3,
+        "SizeDev": 2.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": ["Skilled Human", "Versatile Human"],
+        "MaxAge": 90,
+        "MatureAge": 18
+    },
+    {
+        "Name": "Dwarf",
+        "LH": 100,
+        "SizeAvg": 3.7,
+        "SizeDev": 1.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            ["{AdjectiveSizes} beard"]
+        ],
+        "CertainSpecialTraits": [
+            ["short and stocky"]
+        ],
+        "Heriatage": ["Ancient-Blooded Dwarf", "Anvil Dwarf", "Death Warden Dwarf", "Elemental Heart Dwarf", "Forge Dwarf", "Forge-Blessed Dwarf", "Oathkeeper Dwarf", "Rock Dwarf", "Strong-Blooded Dwarf"],
+        "MaxAge": 350,
+        "MatureAge": 25
+    },
+    {
+        "Name": "Elf",
+        "LH": 100,
+        "SizeAvg": 5.4,
+        "SizeDev": 2.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "Red",
+            "Orange",
+            "Yellow",
+            "Green",
+            "Blue",
+            "Purple",
+            "Pink",
+            "Teal",
+            "Turquoise",
+            "Crimson",
+            "Vermillion",
+            "Goldenrod",
+            "Lime Green",
+            "Azure",
+            "Violet",
+            "Magenta",
+            "Coral",
+            "Cerulean",
+            "Lavender",
+            "Ruby",
+            "Saffron",
+            "Chartreuse",
+            "Cobalt Blue",
+            "Amethyst",
+            "Fuchsia",
+            "Salmon",
+            "Sky Blue",
+            "Lilac"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            [
+                "Wide and rounded eyes"
+            ],
+            [
+                "{AdjectiveSizes} sharply pointy ears"
+            ]
+        ],
+        "Heriatage": ["Cavern Elf","Seer Elf", "Whisper Elf", "Woodland Elf"],
+        "MaxAge": 600,
+        "MatureAge": 50
+    },
+    {
+        "Name": "Gnome",
+        "LH": 100,
+        "SizeAvg": 3.0,
+        "SizeDev": 0.4,
+        "SkinColor": [
+            "default", "Green","Black", "Pale Blue"
+        ],
+        "Undertones": [
+            "Non Bleached", "Very slightly Bleached", "Slightly Bleached", "Moderately Bleached", "Very Bleached", "About to be fully Bleached", "Fully Bleached"
+        ],
+        "HairColor": [
+            "default",
+            "Red",
+            "Orange",
+            "Yellow",
+            "Green",
+            "Blue",
+            "Purple",
+            "Pink",
+            "Teal",
+            "Turquoise",
+            "Crimson",
+            "Vermillion",
+            "Goldenrod",
+            "Lime Green",
+            "Azure",
+            "Violet",
+            "Magenta",
+            "Coral",
+            "Cerulean",
+            "Lavender",
+            "Ruby",
+            "Saffron",
+            "Chartreuse",
+            "Cobalt Blue",
+            "Amethyst",
+            "Fuchsia",
+            "Salmon",
+            "Sky Blue",
+            "Lilac",
+            "Purple",
+            "Rosa"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default","Crimson", "Scarlet", "Ruby", "Rose", "Maroon", "Burgundy", "Cherry", "Brick", "Coral", "Magenta", "Tangerine", "Mandarin", "Peach", "Apricot", "Burnt orange", "Rust", "Cinnamon", "Ginger", "Pumpkin", "Amber", "Lemon", "Lime", "Gold", "Mustard", "Canary", "Buttermilk", "Honey", "Saffron", "Sunflower", "Cream", "Emerald", "Jade", "Olive", "Chartreuse", "Lime green", "Forest green", "Moss", "Mint", "Teal", "Turquoise", "Navy", "Indigo", "Sapphire", "Cobalt", "Azure", "Cerulean", "Sky blue", "Cornflower blue", "Periwinkle", "Lavender", "Violet", "Lilac", "Amethyst", "Lavender", "Plum", "Mauve", "Fuchsia", "Magenta", "Eggplant", "Grape", "Pink", "Salmon", "Brown", "Chocolate", "Black", "White", "Ivory", "Beige", "Tan", "Gold", "Silver"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": ["Chameleon Gnome", "Fey-touched Gnome", "Sensate Gnome", "Umbral Gnome", "Vivacious Gnome", "Wellspring Gnome"],
+        "MaxAge": 350,
+        "MatureAge": 18
+    },
+    {
+        "Name": "Goblin",
+        "LH": 100,
+        "SizeAvg": 3.1,
+        "SizeDev": 0.4,
+        "SkinColor": [
+            "green",
+            "olive",
+            "lime green",
+            "forest green",
+            "teal",
+            "turquoise",
+            "navy",
+            "indigo",
+            "blue",
+            "sky blue",
+            "lavender",
+            "violet",
+            "purple",
+            "pink"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "90Bald","Buzz Cut", "Bald on Top Hair on Sides"
+        ],
+        "EyeColor": [
+            "default", "95Red"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            ["Massively Oversized Head"],["Stumpy"],["Scrawny Limbs"],["{AdjectiveSizes} sharply pointy ears"]
+        ],
+        "Heriatage": ["Charhide Goblin", "Irongut Goblin", "Razortooth Goblin", "Snow Goblin", "Tailed Goblin", "Treedweller Goblin", "Unbreakable Goblin"],
+        "MaxAge": 60,
+        "MatureAge": 5
+    },
+    {
+        "Name": "Halfling",
+        "LH": 100,
+        "SizeAvg": 2.7,
+        "SizeDev": 0.7,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": ["Gutsy Halfling", "Hillock Halfling", "Jinxed Halfling", "Nomadic Halfling", "Observant Halfling", "Twilight Halfling", "Wildwood Halfling"],
+        "MaxAge": 350,
+        "MatureAge": 18
+    },
+    {
+        "Name": "Orc",
+        "LH": 100,
+        "SizeAvg": 5.2,
+        "SizeDev": 2.3,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": ["Badlands Orc", "Battle-Ready Orc", "Deep Orc", "Grave Orc", "Hold-Scarred Orc", "Rainfall Orc", "Winter Orc"],
+        "MaxAge": 100,
+        "MatureAge": 17
+    },
+    {
+        "Name": "Leshy",
+        "LH": 100,
+        "SizeAvg": 2.5,
+        "SizeDev": 1.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": ["Cactus Leshy", "Fruit Leshy", "Fungus Leshy", "Gourd Leshy", "Leaf Leshy", "Lotus Leshy", "Pine Leshy", "Root Leshy", "Seaweed Leshy", "Vine Leshy"],
+        "MaxAge": 10000,
+        "MatureAge": 0
+    },
+    {
+        "Name": "Athamaru",
+        "LH": 30,
+        "SizeAvg": 4.3,
+        "SizeDev": 2.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": ["Coral Athamaru", "Hopeful Athamaru", "Kaleidoscopic Athamaru", "Quilled Athamaru"],
+        "MaxAge": 260,
+        "MatureAge": 20
+    },
+    {
+        "Name": "Azarketi",
+        "LH": 30,
+        "SizeAvg": 5.0,
+        "SizeDev": 1.0,
+        "SkinColor": [
+            "Pearlescent White",
+            "Pinkish White",
+            "Light Coral Pink",
+            "Red",
+            "Peach",
+            "Pale Pink",
+            "Blush Pink",
+            "Light Greenish",
+            "Seafoam Green",
+            "Pale Olive",
+            "Light Brown",
+            "Sandy Brown",
+            "Coral Brown",
+            "Rose Beige",
+            "Warm Beige",
+            "Ivory"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "Single Dorsal Fin",
+            "Double Dorsal Fins",
+            "Side Fins",
+            "Triple Fin Crest",
+            "V-shaped Fin Ridge",
+            "Scaled Ridge with Spikes",
+            "Curved Ridge",
+            "Jagged Ridge",
+            "Smooth Ridge",
+            "Webbed Fin Ridge",
+            "Short Scaled Ridge",
+            "Long Flowing Fin",
+            "Frilled Side Fins",
+            "Layered Scaled Ridge",
+            "Banded Ridge",
+            "Spiked Fin Crest",
+            "Rippled Fin",
+            "Segmented Ridge",
+            "Fan-shaped Fin",
+            "Crown-shaped Ridge",
+            "Twisted Fin",
+            "Horned Ridge",
+            "Double Webbed Fins",
+            "Scalloped Ridge",
+            "Pinnate Fin",
+            "Interlocking Ridges",
+            "Flared Fin Ridge",
+            "Clustered Fins",
+            "Radiant Ridge",
+            "Spiral Fin Crest"
+        ],
+        "EyeColor": [
+            "default",
+            "70Violet"
+        ],
+        "OptionalSpecialTraits": [
+            [
+                "Gills on Torso",
+                "Waterproof Scales",
+                "Retractable Fins",
+                "Transparent Eyelids",
+                "Tail Fin",
+                "Barbed Fingernails",
+                "Slimy Skin",
+                "Sharp Teeth",
+                "Color-Changing Scales",
+                "Curved Ridge",
+                "Gill Covers",
+                "Light-Sensitive Eyes",
+                "Nictitating Membrane",
+                "Camouflage Skin",
+                "Prehensile Tail",
+                "Ridge-Lined Skull",
+                "Luminous Eyes",
+                "Coral-Like Armor Plates",
+                "Suction Cup Pads",
+                "Shell-Like Exoskeleton",
+                "Dermal Denticles",
+                "Hardened Scales",
+                "Enlarged Chest Cavity",
+                "Strong Jaw Muscles",
+                "Wide Peripheral Vision",
+                "Barbed Tongue",
+                "Bioluminescent Markings",
+                "Subdermal Air Sacs",
+                "Flesh-Colored Fins",
+                "Adaptable Skin Texture",
+                "Semi-Permeable Skin",
+                "Reflective Eyes",
+                "Buoyant Body Structure",
+                "Secondary Set of Fins",
+                "Antennae-Like Protrusions",
+                "Expandable Throat Pouch",
+                "Padded Foot Soles",
+                "Heat-Resistant Scales",
+                "Razor-Sharp Ridge",
+                "Secondary Jaw",
+                "Slime Production",
+                "Webbed Neck Folds",
+                "Wing-Like Fins"
+            ]
+        ],
+        "CertainSpecialTraits": [
+            [
+                "Webbed Feet"
+            ],
+            [
+                "Webbed Hands"
+            ],
+            [
+                "Gills on Neck"
+            ]
+        ],
+        "Heriatage": ["Ancient Scale Azarketi", "Benthic Azarketi", "Inured Azarketi", "Mistbreath Azarketi", "Murkeyed Azarketi", "River Azarketi", "Spined Azarketi", "Tactile Azarketi", "Thalassic Azarketi"],
+        "MaxAge": 120,
+        "MatureAge": 20
+    },
+    {
+        "Name": "Catfolk",
+        "LH": 30,
+        "SizeAvg": 4.5,
+        "SizeDev": 2.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": [],
+        "MaxAge": 80,
+        "MatureAge": 15
+    },
+    {
+        "Name": "Centaur",
+        "LH": 30,
+        "SizeAvg": 6.0,
+        "SizeDev": 1.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": [],
+        "MaxAge": 290,
+        "MatureAge": 15
+    },
+    {
+        "Name": "Fetchlings",
+        "LH": 30,
+        "SizeAvg": 5.2,
+        "SizeDev": 1.2,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": [],
+        "MaxAge": 140,
+        "MatureAge": 20
+    },
+    {
+        "Name": "Gnoll",
+        "LH": 30,
+        "SizeAvg": 6.0,
+        "SizeDev": 1.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": [],
+        "MaxAge": 110,
+        "MatureAge": 15
+    },
+    {
+        "Name": "Grippli",
+        "LH": 30,
+        "SizeAvg": 1.5,
+        "SizeDev": 1.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": [],
+        "MaxAge": 100,
+        "MatureAge": 12
+    },
+    {
+        "Name": "Hobgoblin",
+        "LH": 30,
+        "SizeAvg": 4.0,
+        "SizeDev": 2.6,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": [],
+        "MaxAge": 70,
+        "MatureAge": 14
+    },
+    {
+        "Name": "Kitsune",
+        "LH": 100,
+        "SizeAvg": 4.5,
+        "SizeDev": 1.8,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": [],
+        "MaxAge": 1500,
+        "MatureAge": 15
+    },
+    {
+        "Name": "Kobold",
+        "LH": 30,
+        "SizeAvg": 2.4,
+        "SizeDev": 0.1,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": [],
+        "MaxAge": 60,
+        "MatureAge": 12
+    },
+    {
+        "Name": "Lizardfolk",
+        "LH": 30,
+        "SizeAvg": 6.0,
+        "SizeDev": 1.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": [],
+        "MaxAge": 120,
+        "MatureAge": 15
+    },
+    {
+        "Name": "Merfolk",
+        "LH": 30,
+        "SizeAvg": 5.8,
+        "SizeDev": 2.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": ["Abyssal Merfolk","Carcharodon Merfolk","Pelagic Merfolk","Reef Merfolk","Sailfish Merfolk"],
+        "MaxAge": 75,
+        "MatureAge": 15
+    },
+    {
+        "Name": "Minotaur",
+        "LH": 30,
+        "SizeAvg": 5.4,
+        "SizeDev": 1.0,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            []
+        ],
+        "Heriatage": ["Ghost Bull Minotaur","Glacier Cavern Minotaur","Littlehorn Minotaur","Roaming Minotaur","Slabsoul Minotaur","Stalker Minotaur"],
+        "MaxAge": 150,
+        "MatureAge": 17
+    },
+    {
+        "Name": "Nagaji",
+        "LH": 30,
+        "SizeAvg": 5.6,
+        "SizeDev": 2,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "default"
+        ],
+        "HairColor": [
+            "default"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            ["Fangs"]
+        ],
+        "Heriatage": ["Hooded Nagaji","Sacred Nagaji","Titan Nagaji","Venomshield Nagaji","Whipfang Nagaji"],
+        "MaxAge": 135,
+        "MatureAge": 20 
+    },
+    {
+        "Name": "Ratfolk",
+        "LH": 30,
+        "SizeAvg": 3.4,
+        "SizeDev": 1,
+        "SkinColor": [
+            "default"
+        ],
+        "Undertones": [
+            "80Short","Long","Frazzled","Fluffy"
+        ],
+        "HairColor": [
+            "default","40brown","40black"
+        ],
+        "Hairstyles": [
+            "default"
+        ],
+        "EyeColor": [
+            "default","80Red"
+        ],
+        "OptionalSpecialTraits": [
+            []
+        ],
+        "CertainSpecialTraits": [
+            ["whiskered snouts"], [" large ears"], ["hairless tails"]
+        ],
+        "Heriatage": ["Deep Rat","Desert Rat","Longsnout Rat","Sewer Rat","Shadow Rat","Snow Rat","Tunnel Rat"],
+        "MaxAge": 45,
+        "MatureAge": 12
+    },
+    {
+        "Name": "Tengu",
+        "LH": 30,
+        "SizeAvg": 3.10,
+        "SizeDev": 1.2,
+        "SkinColor": [
+            "black","charcoal","oynx","deepblack"
+        ],
+        "Undertones": [
+            "patchy","fluffy","thick","shiny"
+        ],
+        "HairColor": [
+            "na"
+        ],
+        "Hairstyles": [
+            "na"
+        ],
+        "EyeColor": [
+            "default"
+        ],
+        "OptionalSpecialTraits": [
+            ["dyed paterns","dyed feathers"]
+        ],
+        "CertainSpecialTraits": [
+            ["crows head", "taloned legs"]
+        ],
+        "Heriatage": ["Dogtooth Tengu","Jinxed Tengu","Mountainkeeper Tengu","Skyborn Tengu","Stormtossed Tengu","Taloned Tengu","Wavediver Tengu"],
+        "MaxAge": 85,
+        "MatureAge": 15 
+    }
+]

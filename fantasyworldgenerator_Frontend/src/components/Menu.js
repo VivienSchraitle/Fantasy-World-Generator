@@ -1,59 +1,42 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-
-// Styled components
-const MenuContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns */
-  grid-template-rows: repeat(5, 1fr); /* 5 rows */
-  gap: ${(props) => props.theme.spacing.margin}; /* Spacing from global theme */
-  padding: ${(props) => props.theme.spacing.padding}; /* Padding from global theme */
-  background-color: ${(props) => props.theme.colors.background}; /* Background from global theme */
-  height: 100vh; /* Full viewport height */
-  justify-items: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
-`;
-
-const MenuItem = styled.button`
-  width: 200px;
-  height: 160px;
-  font-size: ${(props) => props.theme.font.size}; /* Font size from global theme */
-  background-color: ${(props) => props.theme.colors.buttonBackground}; /* Button background from global theme */
-  color: ${(props) => props.theme.colors.buttonText}; /* Button text color from global theme */
-  border: ${(props) => props.theme.border.width} ${(props) => props.theme.border.style} ${(props) => props.theme.colors.border}; /* Border from global theme */
-  border-radius: ${(props) => props.theme.spacing.borderRadius}; /* Border-radius from global theme */
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-
-  &:hover {
-    background-color: ${(props) => props.theme.colors.hoverBackground}; /* Hover background from global theme */
-    transform: scale(1.05);
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-`;
+import '../styles/index.css'; // Import CSS module
 
 const Menu = () => {
   const navigate = useNavigate();
 
-  const handleNavigation = (option) => {
-    navigate(`/option${option}`);
+  const handleButtonClick = (path) => {
+    navigate(path);
   };
 
   return (
-    <MenuContainer>
-      {Array.from({ length: 25 }, (_, index) => (
-        <MenuItem
-          key={index}
-          onClick={() => handleNavigation(index + 1)}
-        >
-          Option {index + 1}
-        </MenuItem>
-      ))}
-    </MenuContainer>
+    <div className="menuContainer">
+      <button className="button" onClick={() => handleButtonClick('/faction-generator')}>Faction Generator</button>
+      <button className="button" onClick={() => handleButtonClick('/page2')}>Page 2</button>
+      <button className="button" onClick={() => handleButtonClick('/page3')}>Page 3</button>
+      <button className="button" onClick={() => handleButtonClick('/page4')}>Page 4</button>
+      <button className="button" onClick={() => handleButtonClick('/page5')}>Page 5</button>
+      <button className="button" onClick={() => handleButtonClick('/page6')}>Page 6</button>
+      <button className="button" onClick={() => handleButtonClick('/page7')}>Page 7</button>
+      <button className="button" onClick={() => handleButtonClick('/page8')}>Page 8</button>
+      <button className="button" onClick={() => handleButtonClick('/page9')}>Page 9</button>
+      <button className="button" onClick={() => handleButtonClick('/page10')}>Page 10</button>
+      <button className="button" onClick={() => handleButtonClick('/page11')}>Page 11</button>
+      <button className="button" onClick={() => handleButtonClick('/page12')}>Page 12</button>
+      <button className="button" onClick={() => handleButtonClick('/page13')}>Page 13</button>
+      <button className="button" onClick={() => handleButtonClick('/page14')}>Page 14</button>
+      <button className="button" onClick={() => handleButtonClick('/page15')}>Page 15</button>
+      <button className="button" onClick={() => handleButtonClick('/page16')}>Page 16</button>
+      <button className="button" onClick={() => handleButtonClick('/page17')}>Page 17</button>
+      <button className="button" onClick={() => handleButtonClick('/page18')}>Page 18</button>
+      <button className="button" onClick={() => handleButtonClick('/page19')}>Page 19</button>
+      <button className="button" onClick={() => handleButtonClick('/page20')}>Page 20</button>
+      <button className="button" onClick={() => handleButtonClick('/page21')}>Page 21</button>
+      <button className="button" onClick={() => handleButtonClick('/page22')}>Page 22</button>
+      <button className="button" onClick={() => handleButtonClick('/page23')}>Page 23</button>
+      <button className="button" onClick={() => handleButtonClick('/page24')}>Page 24</button>
+      <button className="button" onClick={() => handleButtonClick('/page25')}>Page 25</button>
+    </div>
   );
 };
 

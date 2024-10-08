@@ -20,20 +20,24 @@ public class AuthController {
         String token = authService.login(loginDto);
 
         JwtAuthResponse jwtAuthResponse = new JwtAuthResponse();
+        //System.out.println("token");
         jwtAuthResponse.setAccessToken(token);
 
         return new ResponseEntity<>(jwtAuthResponse, HttpStatus.OK);
     }
 
     @PostMapping("/register")
-    public ResponseEntity<JwtAuthResponse> register(@RequestBody LoginDto loginDto){
-        
+public ResponseEntity<JwtAuthResponse> register(@RequestBody LoginDto loginDto){
+    try {
         String token = authService.register(loginDto);
-
         JwtAuthResponse jwtAuthResponse = new JwtAuthResponse();
         jwtAuthResponse.setAccessToken(token);
-
         return new ResponseEntity<>(jwtAuthResponse, HttpStatus.OK);
+    } catch (Exception e) {
+        // Log errors for debugging purposes
+        //System.out.println("Registration error: " + e.getMessage());
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
     }
+}
 
 }

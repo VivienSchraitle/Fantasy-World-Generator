@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RegisterForm from './components/RegisterForm';
 import FactionGenerator from './components/FactionGenerator';
 import Menu from './components/Menu';
-import { ThemeProvider } from 'styled-components';
-import { theme } from './styles/theme'; // Import the global theme
+import './styles/index.css'; // Importing your global CSS
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
     <Router>
       <Routes>
         <Route path="/" element={<RegisterForm />} /> {/* Default to register page */}
@@ -17,7 +15,6 @@ const App = () => {
         <Route path="/menu" element={<Menu />} />
       </Routes>
     </Router>
-    </ThemeProvider>
   );
 };
 

@@ -8,52 +8,13 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Getter
+@Setter
 public class People implements Serializable{
-    public static int getLowFinanceThreshold() {
-        return LOW_FINANCE_THRESHOLD;
-    }
-    public static int getMidFinanceThreshold() {
-        return MID_FINANCE_THRESHOLD;
-    }
-    public static int getHighFinanceThreshold() {
-        return HIGH_FINANCE_THRESHOLD;
-    }
-    public DataManager.Ancestry getAncestry() {
-        return ancestry;
-    }
-    public void setAncestry(DataManager.Ancestry ancestry) {
-        this.ancestry = ancestry;
-    }
-    public DataManager.Heritage getHeritage() {
-        return heritage;
-    }
-    public void setHeritage(DataManager.Heritage heritage) {
-        this.heritage = heritage;
-    }
-    public Faction getLocalFaction() {
-        return localFaction;
-    }
-    public void setLocalFaction(Faction localFaction) {
-        this.localFaction = localFaction;
-    }
-    public int getFinanceScore() {
-        return financeScore;
-    }
-    public void setFinanceScore(int financeScore) {
-        this.financeScore = financeScore;
-    }
-    public int getReputationScore() {
-        return reputationScore;
-    }
-    public void setReputationScore(int reputationScore) {
-        this.reputationScore = reputationScore;
-    }
-    public int getReligionScore() {
-        return religionScore;
-    }
-    public void setReligionScore(int religionScore) {
-        this.religionScore = religionScore;
-    }
 
     private static final int LOW_FINANCE_THRESHOLD = 70;
     private static final int MID_FINANCE_THRESHOLD = 200;
@@ -72,7 +33,7 @@ public class People implements Serializable{
         localFaction = myFaction;
         List<Person> factionPeople = new ArrayList<>();
 
-        if (!localFaction.generateLeadership().equals("Anarchistic")) {
+        if (!localFaction.getLeadership().equals("Anarchistic")) {
             factionPeople = generateFactionLeaders();
             for (Person leader : factionPeople) {
                 writePerson(leader, "Leader");
@@ -115,7 +76,7 @@ public class People implements Serializable{
     }
         ///creates expicit leaders for a faction
     public List<Person> generateFactionLeaders() {
-        String leadership = localFaction.generateLeadership();
+        String leadership = localFaction.getLeadership();
         List<Person> leaders = new ArrayList<>();
         switch (leadership) {
             case "Democratic":
@@ -138,12 +99,12 @@ public class People implements Serializable{
         person.setMyFaction(localFaction);
         generateName(person);
 
-        if (position != "" && type != "") {
+        if (!"".equals(position) && !"".equals(type)) {
             person.setMyJob(position + " chosen through " + type);
             person.setFinanceScore(DataManager.getRandom().nextInt(localFaction.getFinanceScore(), 100));
             person.setReligionScore(DataManager.getRandom().nextInt(0, 100));
             person.setReputationScore(DataManager.getRandom().nextInt(0, 100));
-        } else if (position != "") {
+        } else if (!"".equals(position)) {
             person.setMyJob(position);
             person.setFinanceScore(Math.max(0, Math.min(localFaction.getFinanceScore() + DataManager.getRandom().nextInt(-10, 10), 100)));
             person.setReligionScore(Math.max(0, Math.min(localFaction.getReligionScore() + DataManager.getRandom().nextInt(-10, 10), 100)));

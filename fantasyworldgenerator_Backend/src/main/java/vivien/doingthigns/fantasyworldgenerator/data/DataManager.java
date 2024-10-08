@@ -3,6 +3,11 @@ package vivien.doingthigns.fantasyworldgenerator.data;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.File;
@@ -11,48 +16,126 @@ import java.io.Serializable;
 import java.nio.file.Paths;
 import java.util.*;
 
+@Setter
+@Getter
 public class DataManager {
-
+    @Setter
+    @Getter
     private static String[] attribute;
+    @Setter
+    @Getter
     private static String[] mainName;
+    @Setter
+    @Getter
     private static String[] factionDomainsMilitary;
+    @Setter
+    @Getter
     private static String[] factionDomainsMundane;
+    @Setter
+    @Getter
     private static String[] factionDomainsMagical;
+    @Setter
+    @Getter
     private static String[] factionDomainsReligious;
+    @Setter
+    @Getter
     private static String[] factionGoals;
+    @Setter
+    @Getter
     private static String[] virtues;
+    @Setter
+    @Getter
     private static Map<String, List<String>> superJobMappings;
+    @Setter
+    @Getter
     private static Map<String, List<String>> highJobMappings;
+    @Setter
+    @Getter
     private static Map<String, List<String>> midJobMappings;
+    @Setter
+    @Getter
     private static Map<String, List<String>> lowJobMappings;
+    @Setter
+    @Getter
     private static String[] doctrines;
+    @Setter
+    @Getter
     private static String[] factionEssence;
+    @Setter
+    @Getter
     private static String[] sourceOfPower;
+    @Setter
+    @Getter
     private static String[] votingType;
+    @Setter
+    @Getter
     private static String[] oliType;
+    @Setter
+    @Getter
     private static String[] oliDemoVotingResults;
+    @Setter
+    @Getter
     private static String[] autocracyType;
+    @Setter
+    @Getter
     private static String[] joinRitualSimple;
+    @Setter
+    @Getter
     private static String[] joinRitualMedium;
+    @Setter
+    @Getter
     private static String[] joinRitualHard;
+    @Setter
+    @Getter
     private static String[] reputation;
+    @Setter
+    @Getter
     private static String[] size;
+    @Setter
+    @Getter
     private static String[] wealth;
+    @Setter
+    @Getter
     private static String[] magicalInclination;
+    @Setter
+    @Getter
     private static String[] militaryInclination;
+    @Setter
+    @Getter
     private static String[] intensity;
+    @Setter
+    @Getter
 
     private static String[] defaultSkinColor;
+    @Setter
+    @Getter
     private static String[] defaultUndertones;
+    @Setter
+    @Getter
     private static String[] defaultHairColor;
+    @Setter
+    @Getter
     private static String[] defaultHairstyles;
+    @Setter
+    @Getter
     private static String[] defaultEyeColor;
+    @Setter
+    @Getter
     private static String[] adjectiveSizes;
+    @Setter
+    @Getter
     private static String[] classes;
+    @Setter
+    @Getter
     private static String[] success;
+    @Setter
+    @Getter
     private static Random random;
-
+    @Setter
+    @Getter
     private static List<Ancestry> ancestries = new ArrayList<>();
+    @Setter
+    @Getter
     private static List<Heritage> heritages = new ArrayList<>();
 
     static {
@@ -63,7 +146,9 @@ public class DataManager {
         random = new Random(Objects.hash(seed));
     }
 
-    public static class Ancestry implements Serializable{
+    @Getter
+    @Setter
+    public static class Ancestry implements Serializable {
         private String name;
         private int lh;
         private float sizeAvg;
@@ -78,93 +163,11 @@ public class DataManager {
         private String[] heritage;
         private int maxAge;
         private int matureAge;
-        public String getName() {
-            return name;
-        }
-        public void setName(String name) {
-            this.name = name;
-        }
-        public int getLh() {
-            return lh;
-        }
-        public void setLh(int lh) {
-            this.lh = lh;
-        }
-        public float getSizeAvg() {
-            return sizeAvg;
-        }
-        public void setSizeAvg(float sizeAvg) {
-            this.sizeAvg = sizeAvg;
-        }
-        public float getSizeDev() {
-            return sizeDev;
-        }
-        public void setSizeDev(float sizeDev) {
-            this.sizeDev = sizeDev;
-        }
-        public String[] getSkinColor() {
-            return skinColor;
-        }
-        public void setSkinColor(String[] skinColor) {
-            this.skinColor = skinColor;
-        }
-        public String[] getUndertones() {
-            return undertones;
-        }
-        public void setUndertones(String[] undertones) {
-            this.undertones = undertones;
-        }
-        public String[] getHairColor() {
-            return hairColor;
-        }
-        public void setHairColor(String[] hairColor) {
-            this.hairColor = hairColor;
-        }
-        public String[] getHairstyles() {
-            return hairstyles;
-        }
-        public void setHairstyles(String[] hairstyles) {
-            this.hairstyles = hairstyles;
-        }
-        public String[] getEyeColor() {
-            return eyeColor;
-        }
-        public void setEyeColor(String[] eyeColor) {
-            this.eyeColor = eyeColor;
-        }
-        public String[][] getOptionalSpecialTraits() {
-            return optionalSpecialTraits;
-        }
-        public void setOptionalSpecialTraits(String[][] optionalSpecialTraits) {
-            this.optionalSpecialTraits = optionalSpecialTraits;
-        }
-        public String[][] getCertainSpecialTraits() {
-            return certainSpecialTraits;
-        }
-        public void setCertainSpecialTraits(String[][] certainSpecialTraits) {
-            this.certainSpecialTraits = certainSpecialTraits;
-        }
-        public String[] getHeritage() {
-            return heritage;
-        }
-        public void setHeritage(String[] heritage) {
-            this.heritage = heritage;
-        }
-        public int getMaxAge() {
-            return maxAge;
-        }
-        public void setMaxAge(int maxAge) {
-            this.maxAge = maxAge;
-        }
-        public int getMatureAge() {
-            return matureAge;
-        }
-        public void setMatureAge(int matureAge) {
-            this.matureAge = matureAge;
-        }
     }
 
-    public static class Heritage implements Serializable{
+    @Getter
+    @Setter
+    public static class Heritage implements Serializable {
         private String name;
         private int lh;
         private String[] skinColor;
@@ -174,96 +177,70 @@ public class DataManager {
         private String[] eyeColor;
         private String[][] optionalSpecialTraits;
         private String[][] certainSpecialTraits;
-        public String getName() {
-            return name;
-        }
-        public void setName(String name) {
-            this.name = name;
-        }
-        public int getLh() {
-            return lh;
-        }
-        public void setLh(int lh) {
-            this.lh = lh;
-        }
-        public String[] getSkinColor() {
-            return skinColor;
-        }
-        public void setSkinColor(String[] skinColor) {
-            this.skinColor = skinColor;
-        }
-        public String[] getUndertones() {
-            return undertones;
-        }
-        public void setUndertones(String[] undertones) {
-            this.undertones = undertones;
-        }
-        public String[] getHairColor() {
-            return hairColor;
-        }
-        public void setHairColor(String[] hairColor) {
-            this.hairColor = hairColor;
-        }
-        public String[] getHairstyles() {
-            return hairstyles;
-        }
-        public void setHairstyles(String[] hairstyles) {
-            this.hairstyles = hairstyles;
-        }
-        public String[] getEyeColor() {
-            return eyeColor;
-        }
-        public void setEyeColor(String[] eyeColor) {
-            this.eyeColor = eyeColor;
-        }
-        public String[][] getOptionalSpecialTraits() {
-            return optionalSpecialTraits;
-        }
-        public void setOptionalSpecialTraits(String[][] optionalSpecialTraits) {
-            this.optionalSpecialTraits = optionalSpecialTraits;
-        }
-        public String[][] getCertainSpecialTraits() {
-            return certainSpecialTraits;
-        }
-        public void setCertainSpecialTraits(String[][] certainSpecialTraits) {
-            this.certainSpecialTraits = certainSpecialTraits;
-        }
     }
 
     public static void loadFactionData() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String path = Paths.get("").toAbsolutePath().normalize().toString();
-            //path = new File(path).getParent();
+            // path = new File(path).getParent();
 
-            attribute = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/FactionAttribute.JSON"));
-            mainName = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/FactionName.JSON"));
-            factionDomainsMilitary = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/factionDomainsMilitary.JSON"));
-            factionDomainsMundane = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/factionDomainsMundane.JSON"));
-            factionDomainsReligious = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/factionDomainsReligious.JSON"));
-            factionDomainsMagical = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/factionDomainsMagical.JSON"));
-            virtues = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/Virtues.JSON"));
-            factionGoals = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/Goals.JSON"));
-            superJobMappings = deserializeJsonMap(objectMapper, new File(path, "JSONs/Faction/InsaneFinances.JSON"));
-            highJobMappings = deserializeJsonMap(objectMapper, new File(path, "JSONs/Faction/HighFinances.JSON"));
-            midJobMappings = deserializeJsonMap(objectMapper, new File(path, "JSONs/Faction/MidFinances.JSON"));
-            lowJobMappings = deserializeJsonMap(objectMapper, new File(path, "JSONs/Faction/LowFinances.JSON"));
-            doctrines = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/Doctrines.JSON"));
-            factionEssence = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/FactionEssence.JSON"));
-            sourceOfPower = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/SourceOfPower.JSON"));
-            votingType = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/VotingType.JSON"));
-            oliType = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/OliType.JSON"));
-            oliDemoVotingResults = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/OliDemoVotingResults.JSON"));
-            autocracyType = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/AutocracyType.JSON"));
-            joinRitualSimple = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/JoinRitualSimple.JSON"));
-            joinRitualMedium = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/JoinRitualMedium.JSON"));
-            joinRitualHard = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/JoinRitualHard.JSON"));
-            reputation = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/Reputation.JSON"));
-            size = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/Size.JSON"));
-            wealth = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/Wealth.JSON"));
-            magicalInclination = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/MagicalInclination.JSON"));
-            militaryInclination = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/MilitaryInclination.JSON"));
-            intensity = deserializeJsonArray(objectMapper, new File(path, "JSONs/Faction/Intensity.JSON"));
+            attribute = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/FactionAttribute.JSON"));
+            mainName = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/FactionName.JSON"));
+            factionDomainsMilitary = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/factionDomainsMilitary.JSON"));
+            factionDomainsMundane = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/factionDomainsMundane.JSON"));
+            factionDomainsReligious = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/factionDomainsReligious.JSON"));
+            factionDomainsMagical = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/factionDomainsMagical.JSON"));
+            virtues = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/Virtues.JSON"));
+            factionGoals = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/Goals.JSON"));
+            superJobMappings = deserializeJsonMap(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/InsaneFinances.JSON"));
+            highJobMappings = deserializeJsonMap(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/HighFinances.JSON"));
+            midJobMappings = deserializeJsonMap(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/MidFinances.JSON"));
+            lowJobMappings = deserializeJsonMap(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/LowFinances.JSON"));
+            doctrines = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/Doctrines.JSON"));
+            factionEssence = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/FactionEssence.JSON"));
+            sourceOfPower = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/SourceOfPower.JSON"));
+            votingType = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/VotingType.JSON"));
+            oliType = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/OliType.JSON"));
+            oliDemoVotingResults = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/OliDemoVotingResults.JSON"));
+            autocracyType = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/AutocracyType.JSON"));
+            joinRitualSimple = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/JoinRitualSimple.JSON"));
+            joinRitualMedium = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/JoinRitualMedium.JSON"));
+            joinRitualHard = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/JoinRitualHard.JSON"));
+            reputation = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/Reputation.JSON"));
+            size = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/Size.JSON"));
+            wealth = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/Wealth.JSON"));
+            magicalInclination = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/MagicalInclination.JSON"));
+            militaryInclination = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/MilitaryInclination.JSON"));
+            intensity = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/Faction/Intensity.JSON"));
         } catch (JsonProcessingException e) {
             System.err.println("Error during JSON deserialization: " + e.getMessage());
             System.exit(0);
@@ -277,12 +254,14 @@ public class DataManager {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             String path = Paths.get("").toAbsolutePath().normalize().toString();
-            //path = new File(path).getParent();
+            // path = new File(path).getParent();
 
-            loadAncestries(objectMapper, new File(path, "JSONs/People/Ancestires.JSON"));
-            loadHeritages(objectMapper, new File(path, "JSONs/People/Heriatage.JSON"));
-            classes = deserializeJsonArray(objectMapper, new File(path, "JSONs/People/Classes.JSON"));
-            success = deserializeJsonArray(objectMapper, new File(path, "JSONs/People/Success.JSON"));
+            loadAncestries(objectMapper, new File(path, "fantasyworldgenerator_Backend/JSONs/People/Ancestires.JSON"));
+            loadHeritages(objectMapper, new File(path, "fantasyworldgenerator_Backend/JSONs/People/Heriatage.JSON"));
+            classes = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/People/Classes.JSON"));
+            success = deserializeJsonArray(objectMapper,
+                    new File(path, "fantasyworldgenerator_Backend/JSONs/People/Success.JSON"));
         } catch (JsonProcessingException e) {
             System.err.println("Error during JSON deserialization: " + e.getMessage());
             System.exit(0);
@@ -297,7 +276,9 @@ public class DataManager {
     private static void loadAncestries(ObjectMapper objectMapper, File filePath) {
         try {
             if (filePath.exists()) {
-                List<Map<String, JsonNode>> jsonObjects = objectMapper.readValue(filePath, new TypeReference<List<Map<String, JsonNode>>>() {});
+                List<Map<String, JsonNode>> jsonObjects = objectMapper.readValue(filePath,
+                        new TypeReference<List<Map<String, JsonNode>>>() {
+                        });
 
                 if (jsonObjects.isEmpty()) {
                     System.out.println("Ancestry data is empty or invalid.");
@@ -321,13 +302,20 @@ public class DataManager {
                     ancestry.lh = ancestryJson.get("LH").asInt(0);
                     ancestry.sizeAvg = ancestryJson.get("SizeAvg").floatValue();
                     ancestry.sizeDev = ancestryJson.get("SizeDev").floatValue();
-                    ancestry.skinColor = resolveDefaults(deserializeJsonArray(objectMapper, ancestryJson.get("SkinColor")), defaultSkinColor);
-                    ancestry.undertones = resolveDefaults(deserializeJsonArray(objectMapper, ancestryJson.get("Undertones")), defaultUndertones);
-                    ancestry.hairColor = resolveDefaults(deserializeJsonArray(objectMapper, ancestryJson.get("HairColor")), defaultHairColor);
-                    ancestry.hairstyles = resolveDefaults(deserializeJsonArray(objectMapper, ancestryJson.get("Hairstyles")), defaultHairstyles);
-                    ancestry.eyeColor = resolveDefaults(deserializeJsonArray(objectMapper, ancestryJson.get("EyeColor")), defaultEyeColor);
-                    ancestry.optionalSpecialTraits = deserializeSpecialTraits(objectMapper, ancestryJson.get("OptionalSpecialTraits"));
-                    ancestry.certainSpecialTraits = deserializeSpecialTraits(objectMapper, ancestryJson.get("CertainSpecialTraits"));
+                    ancestry.skinColor = resolveDefaults(
+                            deserializeJsonArray(objectMapper, ancestryJson.get("SkinColor")), defaultSkinColor);
+                    ancestry.undertones = resolveDefaults(
+                            deserializeJsonArray(objectMapper, ancestryJson.get("Undertones")), defaultUndertones);
+                    ancestry.hairColor = resolveDefaults(
+                            deserializeJsonArray(objectMapper, ancestryJson.get("HairColor")), defaultHairColor);
+                    ancestry.hairstyles = resolveDefaults(
+                            deserializeJsonArray(objectMapper, ancestryJson.get("Hairstyles")), defaultHairstyles);
+                    ancestry.eyeColor = resolveDefaults(
+                            deserializeJsonArray(objectMapper, ancestryJson.get("EyeColor")), defaultEyeColor);
+                    ancestry.optionalSpecialTraits = deserializeSpecialTraits(objectMapper,
+                            ancestryJson.get("OptionalSpecialTraits"));
+                    ancestry.certainSpecialTraits = deserializeSpecialTraits(objectMapper,
+                            ancestryJson.get("CertainSpecialTraits"));
                     ancestry.heritage = deserializeJsonArray(objectMapper, ancestryJson.get("Heritage"));
                     ancestry.maxAge = ancestryJson.get("MaxAge").asInt(0);
                     ancestry.matureAge = ancestryJson.get("MatureAge").asInt(0);
@@ -348,7 +336,9 @@ public class DataManager {
     private static void loadHeritages(ObjectMapper objectMapper, File filePath) {
         try {
             if (filePath.exists()) {
-                List<Map<String, JsonNode>> jsonObjects = objectMapper.readValue(filePath, new TypeReference<List<Map<String, JsonNode>>>() {});
+                List<Map<String, JsonNode>> jsonObjects = objectMapper.readValue(filePath,
+                        new TypeReference<List<Map<String, JsonNode>>>() {
+                        });
 
                 if (jsonObjects.isEmpty()) {
                     System.out.println("Heritage data is empty or invalid.");
@@ -370,13 +360,20 @@ public class DataManager {
 
                     heritage.name = heritageJson.get("Name").asText("Unknown");
                     heritage.lh = heritageJson.get("LH").asInt(0);
-                    heritage.skinColor = resolveDefaults(deserializeJsonArray(objectMapper, heritageJson.get("SkinColor")), defaultSkinColor);
-                    heritage.undertones = resolveDefaults(deserializeJsonArray(objectMapper, heritageJson.get("Undertones")), defaultUndertones);
-                    heritage.hairColor = resolveDefaults(deserializeJsonArray(objectMapper, heritageJson.get("HairColor")), defaultHairColor);
-                    heritage.hairstyles = resolveDefaults(deserializeJsonArray(objectMapper, heritageJson.get("Hairstyles")), defaultHairstyles);
-                    heritage.eyeColor = resolveDefaults(deserializeJsonArray(objectMapper, heritageJson.get("EyeColor")), defaultEyeColor);
-                    heritage.optionalSpecialTraits = deserializeSpecialTraits(objectMapper, heritageJson.get("OptionalSpecialTraits"));
-                    heritage.certainSpecialTraits = deserializeSpecialTraits(objectMapper, heritageJson.get("CertainSpecialTraits"));
+                    heritage.skinColor = resolveDefaults(
+                            deserializeJsonArray(objectMapper, heritageJson.get("SkinColor")), defaultSkinColor);
+                    heritage.undertones = resolveDefaults(
+                            deserializeJsonArray(objectMapper, heritageJson.get("Undertones")), defaultUndertones);
+                    heritage.hairColor = resolveDefaults(
+                            deserializeJsonArray(objectMapper, heritageJson.get("HairColor")), defaultHairColor);
+                    heritage.hairstyles = resolveDefaults(
+                            deserializeJsonArray(objectMapper, heritageJson.get("Hairstyles")), defaultHairstyles);
+                    heritage.eyeColor = resolveDefaults(
+                            deserializeJsonArray(objectMapper, heritageJson.get("EyeColor")), defaultEyeColor);
+                    heritage.optionalSpecialTraits = deserializeSpecialTraits(objectMapper,
+                            heritageJson.get("OptionalSpecialTraits"));
+                    heritage.certainSpecialTraits = deserializeSpecialTraits(objectMapper,
+                            heritageJson.get("CertainSpecialTraits"));
 
                     expandSpecialTraits(heritage.optionalSpecialTraits);
                     expandSpecialTraits(heritage.certainSpecialTraits);
@@ -424,8 +421,10 @@ public class DataManager {
         return result.toArray(new String[0]);
     }
 
-    private static Map<String, List<String>> deserializeJsonMap(ObjectMapper objectMapper, File file) throws IOException {
-        return objectMapper.readValue(file, new TypeReference<Map<String, List<String>>>() {});
+    private static Map<String, List<String>> deserializeJsonMap(ObjectMapper objectMapper, File file)
+            throws IOException {
+        return objectMapper.readValue(file, new TypeReference<Map<String, List<String>>>() {
+        });
     }
 
     private static String[][] deserializeSpecialTraits(ObjectMapper objectMapper, JsonNode jsonNode) {
@@ -447,7 +446,8 @@ public class DataManager {
         for (int j = 0; j < specialTraits.length; j++) {
             for (String specialTrait : specialTraits[j]) {
                 if (specialTrait.contains("{AdjectiveSizes}")) {
-                    specialTraits[j] = Arrays.stream(adjectiveSizes).map(adj -> specialTrait.replace("{AdjectiveSizes}", adj)).toArray(String[]::new);
+                    specialTraits[j] = Arrays.stream(adjectiveSizes)
+                            .map(adj -> specialTrait.replace("{AdjectiveSizes}", adj)).toArray(String[]::new);
                 }
             }
         }
@@ -465,317 +465,5 @@ public class DataManager {
         System.arraycopy(a, 0, result, 0, a.length);
         System.arraycopy(b, 0, result, a.length, b.length);
         return result;
-    }
-
-    public static String[] getAttribute() {
-        return attribute;
-    }
-
-    public static void setAttribute(String[] attribute) {
-        DataManager.attribute = attribute;
-    }
-
-    public static String[] getMainName() {
-        return mainName;
-    }
-
-    public static void setMainName(String[] mainName) {
-        DataManager.mainName = mainName;
-    }
-
-    public static String[] getFactionDomainsMilitary() {
-        return factionDomainsMilitary;
-    }
-
-    public static void setFactionDomainsMilitary(String[] factionDomainsMilitary) {
-        DataManager.factionDomainsMilitary = factionDomainsMilitary;
-    }
-
-    public static String[] getFactionDomainsMundane() {
-        return factionDomainsMundane;
-    }
-
-    public static void setFactionDomainsMundane(String[] factionDomainsMundane) {
-        DataManager.factionDomainsMundane = factionDomainsMundane;
-    }
-
-    public static String[] getFactionDomainsMagical() {
-        return factionDomainsMagical;
-    }
-
-    public static void setFactionDomainsMagical(String[] factionDomainsMagical) {
-        DataManager.factionDomainsMagical = factionDomainsMagical;
-    }
-
-    public static String[] getFactionDomainsReligious() {
-        return factionDomainsReligious;
-    }
-
-    public static void setFactionDomainsReligious(String[] factionDomainsReligious) {
-        DataManager.factionDomainsReligious = factionDomainsReligious;
-    }
-
-    public static String[] getFactionGoals() {
-        return factionGoals;
-    }
-
-    public static void setFactionGoals(String[] factionGoals) {
-        DataManager.factionGoals = factionGoals;
-    }
-
-    public static String[] getVirtues() {
-        return virtues;
-    }
-
-    public static void setVirtues(String[] virtues) {
-        DataManager.virtues = virtues;
-    }
-
-    public static Map<String, List<String>> getSuperJobMappings() {
-        return superJobMappings;
-    }
-
-    public static void setSuperJobMappings(Map<String, List<String>> superJobMappings) {
-        DataManager.superJobMappings = superJobMappings;
-    }
-
-    public static Map<String, List<String>> getHighJobMappings() {
-        return highJobMappings;
-    }
-
-    public static void setHighJobMappings(Map<String, List<String>> highJobMappings) {
-        DataManager.highJobMappings = highJobMappings;
-    }
-
-    public static Map<String, List<String>> getMidJobMappings() {
-        return midJobMappings;
-    }
-
-    public static void setMidJobMappings(Map<String, List<String>> midJobMappings) {
-        DataManager.midJobMappings = midJobMappings;
-    }
-
-    public static Map<String, List<String>> getLowJobMappings() {
-        return lowJobMappings;
-    }
-
-    public static void setLowJobMappings(Map<String, List<String>> lowJobMappings) {
-        DataManager.lowJobMappings = lowJobMappings;
-    }
-
-    public static String[] getDoctrines() {
-        return doctrines;
-    }
-
-    public static void setDoctrines(String[] doctrines) {
-        DataManager.doctrines = doctrines;
-    }
-
-    public static String[] getFactionEssence() {
-        return factionEssence;
-    }
-
-    public static void setFactionEssence(String[] factionEssence) {
-        DataManager.factionEssence = factionEssence;
-    }
-
-    public static String[] getSourceOfPower() {
-        return sourceOfPower;
-    }
-
-    public static void setSourceOfPower(String[] sourceOfPower) {
-        DataManager.sourceOfPower = sourceOfPower;
-    }
-
-    public static String[] getVotingType() {
-        return votingType;
-    }
-
-    public static void setVotingType(String[] votingType) {
-        DataManager.votingType = votingType;
-    }
-
-    public static String[] getOliType() {
-        return oliType;
-    }
-
-    public static void setOliType(String[] oliType) {
-        DataManager.oliType = oliType;
-    }
-
-    public static String[] getOliDemoVotingResults() {
-        return oliDemoVotingResults;
-    }
-
-    public static void setOliDemoVotingResults(String[] oliDemoVotingResults) {
-        DataManager.oliDemoVotingResults = oliDemoVotingResults;
-    }
-
-    public static String[] getAutocracyType() {
-        return autocracyType;
-    }
-
-    public static void setAutocracyType(String[] autocracyType) {
-        DataManager.autocracyType = autocracyType;
-    }
-
-    public static String[] getJoinRitualSimple() {
-        return joinRitualSimple;
-    }
-
-    public static void setJoinRitualSimple(String[] joinRitualSimple) {
-        DataManager.joinRitualSimple = joinRitualSimple;
-    }
-
-    public static String[] getJoinRitualMedium() {
-        return joinRitualMedium;
-    }
-
-    public static void setJoinRitualMedium(String[] joinRitualMedium) {
-        DataManager.joinRitualMedium = joinRitualMedium;
-    }
-
-    public static String[] getJoinRitualHard() {
-        return joinRitualHard;
-    }
-
-    public static void setJoinRitualHard(String[] joinRitualHard) {
-        DataManager.joinRitualHard = joinRitualHard;
-    }
-
-    public static String[] getReputation() {
-        return reputation;
-    }
-
-    public static void setReputation(String[] reputation) {
-        DataManager.reputation = reputation;
-    }
-
-    public static String[] getSize() {
-        return size;
-    }
-
-    public static void setSize(String[] size) {
-        DataManager.size = size;
-    }
-
-    public static String[] getWealth() {
-        return wealth;
-    }
-
-    public static void setWealth(String[] wealth) {
-        DataManager.wealth = wealth;
-    }
-
-    public static String[] getMagicalInclination() {
-        return magicalInclination;
-    }
-
-    public static void setMagicalInclination(String[] magicalInclination) {
-        DataManager.magicalInclination = magicalInclination;
-    }
-
-    public static String[] getMilitaryInclination() {
-        return militaryInclination;
-    }
-
-    public static void setMilitaryInclination(String[] militaryInclination) {
-        DataManager.militaryInclination = militaryInclination;
-    }
-
-    public static String[] getIntensity() {
-        return intensity;
-    }
-
-    public static void setIntensity(String[] intensity) {
-        DataManager.intensity = intensity;
-    }
-
-    public static String[] getDefaultSkinColor() {
-        return defaultSkinColor;
-    }
-
-    public static void setDefaultSkinColor(String[] defaultSkinColor) {
-        DataManager.defaultSkinColor = defaultSkinColor;
-    }
-
-    public static String[] getDefaultUndertones() {
-        return defaultUndertones;
-    }
-
-    public static void setDefaultUndertones(String[] defaultUndertones) {
-        DataManager.defaultUndertones = defaultUndertones;
-    }
-
-    public static String[] getDefaultHairColor() {
-        return defaultHairColor;
-    }
-
-    public static void setDefaultHairColor(String[] defaultHairColor) {
-        DataManager.defaultHairColor = defaultHairColor;
-    }
-
-    public static String[] getDefaultHairstyles() {
-        return defaultHairstyles;
-    }
-
-    public static void setDefaultHairstyles(String[] defaultHairstyles) {
-        DataManager.defaultHairstyles = defaultHairstyles;
-    }
-
-    public static String[] getDefaultEyeColor() {
-        return defaultEyeColor;
-    }
-
-    public static void setDefaultEyeColor(String[] defaultEyeColor) {
-        DataManager.defaultEyeColor = defaultEyeColor;
-    }
-
-    public static String[] getAdjectiveSizes() {
-        return adjectiveSizes;
-    }
-
-    public static void setAdjectiveSizes(String[] adjectiveSizes) {
-        DataManager.adjectiveSizes = adjectiveSizes;
-    }
-
-    public static String[] getClasses() {
-        return classes;
-    }
-
-    public static void setClasses(String[] classes) {
-        DataManager.classes = classes;
-    }
-
-    public static String[] getSuccess() {
-        return success;
-    }
-
-    public static void setSuccess(String[] success) {
-        DataManager.success = success;
-    }
-
-    public static Random getRandom() {
-        return random;
-    }
-
-    public static void setRandom(Random random) {
-        DataManager.random = random;
-    }
-
-    public static List<Ancestry> getAncestries() {
-        return ancestries;
-    }
-
-    public static void setAncestries(List<Ancestry> ancestries) {
-        DataManager.ancestries = ancestries;
-    }
-
-    public static List<Heritage> getHeritages() {
-        return heritages;
-    }
-
-    public static void setHeritages(List<Heritage> heritages) {
-        DataManager.heritages = heritages;
     }
 }

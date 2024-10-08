@@ -89,6 +89,7 @@ public String login(LoginDto loginDto) {
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
+        
         // Generate Token
         return jwtTokenProvider.generateToken(authentication);
     }

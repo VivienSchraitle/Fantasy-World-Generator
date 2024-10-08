@@ -1,34 +1,98 @@
-// theme.js
-export const theme = {
-  colors: {
-    background: '#f5f5f5',       // Light gray background for modern feel
-    primary: '#6A5ACD',          // Soft Slate Blue for primary actions
-    secondary: '#FF6F61',        // Soft Coral for secondary buttons
-    buttonBackground: '#6A5ACD', // Matching primary button background
-    buttonText: '#FFFFFF',       // Clean white for button text
-    text: '#2E2E2E',             // Darker text color for better readability
-    border: '#E0E0E0',           // Light border to keep a minimal feel
-    hoverBackground: '#5A4FCF',  // Slightly darker hover for buttons
-    error: '#FF4040',            // Error color for form validation
-    success: '#4CAF50',          // Success green for positive actions/messages
+import { createTheme } from 'styled-components';
+
+const baseTheme = createTheme({
+  typography: {
+    fontFamily: 'Roboto, sans-serif',
+    fontSize: 14,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontWeightBold: 700,
+    h1: {
+      fontSize: 32,
+      fontWeight: 'bold',
+    },
+    h2: {
+      fontSize: 28,
+      fontWeight: 'medium',
+    },
+    h3: {
+      fontSize: 24,
+      fontWeight: 'regular',
+    },
+    h4: {
+      fontSize: 20,
+      fontWeight: 'regular',
+    },
+    body1: {
+      fontSize: 16,
+      lineHeight: 1.5,
+    },
+    body2: {
+      fontSize: 14,
+      lineHeight: 1.4,
+    },
   },
-  font: {
-    family: "'Roboto', sans-serif",  // Modern sans-serif font for a cleaner look
-    size: '18px',                    // Larger default font size for better readability
-    weight: '400',                   // Normal font weight
-    headingWeight: '600',            // Heavier weight for headings
+  palette: {
+    primary: {
+      main: '#007bff',
+      light: '#66b1ff',
+      dark: '#004080',
+      contrastText: '#fff',
+    },
+    secondary: {
+      main: '#ff4081',
+      light: '#ff80c4',
+      dark: '#cc0052',
+      contrastText: '#fff',
+    },
+    error: {
+      main: '#d32f2f',
+      light: '#ff6b6b',
+      dark: '#9a0007',
+      contrastText: '#fff',
+    },
+    warning: {
+      main: '#ff9800',
+      light: '#ffa726',
+      dark: '#cc6600',
+      contrastText: '#fff',
+    },
+    info: {
+      main: '#03a9f4',
+      light: '#63ceff',
+      dark: '#006db6',
+      contrastText: '#fff',
+    },
+    success: {
+      main: '#4caf50',
+      light: '#81c784',
+      dark: '#00893d',
+      contrastText: '#fff',
+    },
+    text: {
+      primary: '#000',
+      secondary: '#666',
+      disabled: '#ccc',
+    },
+    background: {
+      default: '#f5f5f5',
+      paper: '#fff',
+    },
+    action: {
+      disabledBackground: '#f5f5f5',
+      disabledOpacity: 0.38,
+    },
   },
-  spacing: {
-    padding: '12px',                 // Increased padding for more breathing space
-    margin: '12px',                  // Increased margin for better spacing between elements
-    borderRadius: '8px',             // Slightly more rounded borders for a modern look
+  spacing: 8, // Base spacing unit
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
   },
-  border: {
-    width: '1px',
-    style: 'solid',
-  },
-  shadows: {
-    default: '0 4px 6px rgba(0, 0, 0, 0.1)',  // Soft shadow for cards, buttons, etc.
-    hover: '0 6px 8px rgba(0, 0, 0, 0.15)',   // Slightly stronger shadow on hover
-  },
-};
+});
+
+export default baseTheme;

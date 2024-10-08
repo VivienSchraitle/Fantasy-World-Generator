@@ -28,48 +28,33 @@ public class FactionController {
 
     // Generate a new faction using request parameters
     @PostMapping("/generate")
-    public ResponseEntity<String> generateFaction(
-            @RequestParam String scale,
-            @RequestParam String funds,
-            @RequestParam String magic,
-            @RequestParam String military,
-            @RequestParam String religion,
-            @RequestParam String reputation,
-            @RequestParam String intensity,
-            @RequestParam String primPercent,
-            @RequestParam String secPercent,
-            @RequestParam String primaryAncestry,
-            @RequestParam String secondaryAncestry
-    ) {
+    public ResponseEntity<Faction> generateFaction(@RequestBody FactionRequest request) {
         try {
-            // Prepare the input parts from the request parameters
+            // Prepare the input parts from the request object
             String[] inputParts = {
-                    scale,
-                    funds,
-                    magic,
-                    military,
-                    religion,
-                    reputation,
-                    intensity,
-                    primPercent,
-                    secPercent,
-                    primaryAncestry,
-                    secondaryAncestry
+                    request.getScale(),
+                    request.getFunds(),
+                    request.getMagic(),
+                    request.getMilitary(),
+                    request.getReligion(),
+                    request.getReputation(),
+                    request.getIntensity(),
+                    request.getPrimPercent(),
+                    request.getSecPercent(),
+                    request.getPrimaryHeritage(),
+                    request.getSecondaryHeritage()
             };
-
+    
             // Generate the faction using FactionBuilder
             factionBuilder.generateFaction(inputParts);
-
-            // Get faction details after generation
-            String factionDetails = factionBuilder.getFactionDetails();
-
+    
+            Faction faction = factionBuilder.getMyFaction();
             // Return faction details in the response
-            return ResponseEntity.ok(factionDetails);
-
+            return ResponseEntity.ok(faction);
+    
         } catch (Exception e) {
             logger.error("Error generating faction", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Error generating faction: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 

@@ -4,6 +4,7 @@ import '../styles/index.css';
 
 const FactionGenerator = () => {
   const [factionDetails, setFactionDetails] = useState("");
+  const [factionId, setFactionId] = useState(null); // Store faction ID
   const [inputs, setInputs] = useState({
     scale: "50",
     funds: "50",
@@ -57,14 +58,11 @@ const FactionGenerator = () => {
 
   const generateNewField = async (fieldName) => {
     try {
-      const requestData = { fieldName };
+      const requestData = { fieldName, factionId }; // Include factionId in the request
       const response = await api.post("/api/faction/generateField", requestData);
 
       if (response.status >= 200 && response.status < 300) {
-        setFactionDetails((prevDetails) => ({
-          ...prevDetails,
-          [fieldName]: response.data[fieldName],
-        }));
+        setFactionDetails(response.data);
       } else {
         console.error(`Error generating new ${fieldName}: ${response.status}`);
       }
@@ -186,6 +184,7 @@ const FactionGenerator = () => {
             secHeritageName: inputs.secondaryHeritage,
           },
         });
+        setFactionId(response.data.id); // Set the faction ID for future requests
       } else {
         console.error(`Unexpected response: ${response.status}`);
       }

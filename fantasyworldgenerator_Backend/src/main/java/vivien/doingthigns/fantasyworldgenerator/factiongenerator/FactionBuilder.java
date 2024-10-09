@@ -143,7 +143,6 @@ public class FactionBuilder {
         domains = factionGenerator.generateDomains();
         leadership = factionGenerator.generateLeadership();
         joinRitual = factionGenerator.generateJoinRitual();
-
         factionValues = factionGenerator.generateValues();
         doctriens = factionGenerator.generateDoctrines();
         moneySources = factionGenerator.generateMoneySources();
@@ -153,4 +152,6 @@ public class FactionBuilder {
     public void saveFactionToDatabase() {
         entityManager.persist(myFaction); // Save the faction to the database
     }
+
+    
 }

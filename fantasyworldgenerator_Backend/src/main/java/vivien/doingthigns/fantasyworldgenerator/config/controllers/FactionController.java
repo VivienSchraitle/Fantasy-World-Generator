@@ -44,14 +44,14 @@ public class FactionController {
                     request.getPrimaryHeritage(),
                     request.getSecondaryHeritage()
             };
-    
+
             // Generate the faction using FactionBuilder
             factionBuilder.generateFaction(inputParts);
-    
+
             Faction faction = factionBuilder.getMyFaction();
             // Return faction details in the response
             return ResponseEntity.ok(faction);
-    
+
         } catch (Exception e) {
             logger.error("Error generating faction", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
@@ -94,6 +94,32 @@ public class FactionController {
             logger.error("Error saving faction", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(null);
+        }
+    }
+
+    @PostMapping("/generateField")
+    public ResponseEntity<?> generateField(@RequestBody FieldUpdateRequest request) {
+        try {
+            // Call the FactionService to update the specific field based on the request
+            // getFieldName
+            System.out.println("request");
+            Faction faction = factionService.getFactionById(request.getFactionId()).orElse(null);
+            if (faction != null) {
+                factionService.generateFieldForFaction(faction, request.getFieldName());
+                return ResponseEntity.ok(faction);
+            } else {
+                // Handle the case where the Faction is not found
+                throw new IllegalArgumentException("The faction doesn't exist");
+            }
+
+            // Faction updatedFaction =
+            // factionService.generateFieldForFaction(request.getFieldName());
+
+            //return ResponseEntity.internalServerError().body("unexplained error");
+
+        } catch (Exception e) {
+            logger.error("Error generating field for faction", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 }

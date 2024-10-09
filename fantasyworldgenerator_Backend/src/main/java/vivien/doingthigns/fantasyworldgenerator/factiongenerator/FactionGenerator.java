@@ -1,8 +1,19 @@
 package vivien.doingthigns.fantasyworldgenerator.factiongenerator;
 
 import java.util.*;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import vivien.doingthigns.fantasyworldgenerator.data.DataManager;
 
+@Getter
+@Setter
+@Component
+@NoArgsConstructor
 public class FactionGenerator {
 
     private Faction factionEntity;
@@ -30,8 +41,9 @@ public class FactionGenerator {
 
         // Calculate distribution proportion based on magic, military, and religion
         // scores
-        int radomInt = DataManager.getRandom().nextInt(50,100);
-        int distributer = Math.max(1, radomInt + factionEntity.getMagicScore() + factionEntity.getMilitaristicScore() + factionEntity.getReligionScore());
+        int radomInt = DataManager.getRandom().nextInt(50, 100);
+        int distributer = Math.max(1, radomInt + factionEntity.getMagicScore() + factionEntity.getMilitaristicScore()
+                + factionEntity.getReligionScore());
 
         // Calculate rounded domain amounts
         int magicAmount = (int) Math.round((double) amount * factionEntity.getMagicScore() / distributer);
@@ -41,8 +53,7 @@ public class FactionGenerator {
         // Ensure the total equals the calculated amount, assigning the remainder to
         // mundane domains
         int totalSpecialDomains = magicAmount + militaryAmount + religionAmount;
-        int mundaneAmount =Math.max(1, amount - totalSpecialDomains + 2);
-
+        int mundaneAmount = Math.max(1, amount - totalSpecialDomains + 2);
 
         String[] domainsArray = new String[magicAmount + militaryAmount + religionAmount + mundaneAmount];
         int index = 0;
@@ -94,12 +105,12 @@ public class FactionGenerator {
      * }
      */
 
-     public Map.Entry<String, Integer> generateLeadership() {
+    public Map.Entry<String, Integer> generateLeadership() {
         int rndScore = DataManager.getRandom().nextInt(100);
         int intensityLevel = (int) (factionEntity.getIntensityScore() / 20);
-        int assignedLeaders = 0;  // Initialize number of leaders to return
-        String leadershipType = "";  // Initialize leadership type to return
-    
+        int assignedLeaders = 0; // Initialize number of leaders to return
+        String leadershipType = ""; // Initialize leadership type to return
+
         if (intensityLevel == 1) {
             if (rndScore < 25) {
                 leadershipType = DataManager.getSourceOfPower()[0]; // Anarchistic
@@ -140,7 +151,7 @@ public class FactionGenerator {
                 leadershipType = DataManager.getSourceOfPower()[3]; // Autocratic
             }
         }
-    
+
         // Return both the leadership type and the number of assigned leaders
         return new AbstractMap.SimpleEntry<>(leadershipType, assignedLeaders);
     }
@@ -173,7 +184,7 @@ public class FactionGenerator {
 
     public Map<String, String> generatePowerParameters() {
         Map<String, String> powerParameters = new HashMap<>();
-        
+
         int helper = switch (factionEntity.getLeadership()) {
             case "Anarchistic" -> -1;
             case "Democratic" -> 0;
@@ -181,136 +192,151 @@ public class FactionGenerator {
             case "Autocratic" -> 2;
             default -> -300;
         };
-        
+
         if (helper == 0) {
             // Generate democratic voting system details
-            String powerType = DataManager.getVotingType()[DataManager.getRandom().nextInt(DataManager.getVotingType().length)];
-            String votingSystem = DataManager.getOliDemoVotingResults()[DataManager.getRandom().nextInt(DataManager.getOliDemoVotingResults().length)];
-            
+            String powerType = DataManager.getVotingType()[DataManager.getRandom()
+                    .nextInt(DataManager.getVotingType().length)];
+            String votingSystem = DataManager.getOliDemoVotingResults()[DataManager.getRandom()
+                    .nextInt(DataManager.getOliDemoVotingResults().length)];
+
             powerParameters.put("PowerType", powerType);
             powerParameters.put("VotingSystem", votingSystem);
-    
+
         } else if (helper == 1) {
             // Generate oligarchic voting system details
-            String powerType = DataManager.getOliType()[DataManager.getRandom().nextInt(DataManager.getOliType().length)];
-            String votingSystem = DataManager.getOliDemoVotingResults()[DataManager.getRandom().nextInt(DataManager.getOliDemoVotingResults().length)];
-            
+            String powerType = DataManager.getOliType()[DataManager.getRandom()
+                    .nextInt(DataManager.getOliType().length)];
+            String votingSystem = DataManager.getOliDemoVotingResults()[DataManager.getRandom()
+                    .nextInt(DataManager.getOliDemoVotingResults().length)];
+
             powerParameters.put("PowerType", powerType);
             powerParameters.put("VotingSystem", votingSystem);
-    
+
         } else if (helper == 2) {
             // Generate autocratic leadership details
-            String powerType = DataManager.getAutocracyType()[DataManager.getRandom().nextInt(DataManager.getAutocracyType().length)];
-            
+            String powerType = DataManager.getAutocracyType()[DataManager.getRandom()
+                    .nextInt(DataManager.getAutocracyType().length)];
+
             powerParameters.put("PowerType", powerType);
             powerParameters.put("VotingSystem", "N/A"); // Autocracy doesn't have voting
-    
+
         } else if (helper == -1) {
             // Handle anarchistic system
             powerParameters.put("PowerType", "Anarchistic communion");
             powerParameters.put("VotingSystem", "N/A");
         }
-    
+
         return powerParameters;
     }
 
-   /*  public String generateParameters() {
+    /*
+     * public String generateParameters() {
+     * int valuesCount = Math.max(1,
+     * Math.min(factionEntity.getSizeScale() / 10 + (int)
+     * (factionEntity.getIntensityScore() / 20), 7));
+     * int moneyCount = Math.max(1,
+     * Math.min((factionEntity.getSizeScale() + factionEntity.getFinanceScore()) /
+     * 20, 7));
+     * int doctrineCount = Math.max(1, Math.min((int)
+     * (factionEntity.getIntensityScore() / 20), 5));
+     * 
+     * String[] factionValues = new String[valuesCount];
+     * factionEntity.setFactionValues(factionValues);
+     * factionEntity.getMoneySources().clear();
+     * String[] doctrines = new String[doctrineCount];
+     * factionEntity.setDoctrines(doctrines);
+     * 
+     * factionEntity.getMoneySources().put("Low", new ArrayList<>());
+     * factionEntity.getMoneySources().put("Mid", new ArrayList<>());
+     * factionEntity.getMoneySources().put("High", new ArrayList<>());
+     * factionEntity.getMoneySources().put("Insane", new ArrayList<>());
+     * 
+     * StringBuilder valuesStr = new StringBuilder("Their values are: \n");
+     * StringBuilder moneyStr = new StringBuilder("They finance themselves by: \n");
+     * StringBuilder doctrineStr = new StringBuilder("They teach: \n");
+     * 
+     * for (int i = 0; i < valuesCount; i++) {
+     * factionValues[i] = DataManager.getVirtues()[DataManager.getRandom()
+     * .nextInt(DataManager.getVirtues().length)];
+     * valuesStr.append(factionValues[i]).append(", ");
+     * }
+     * 
+     * int reducer = 0;
+     * List<String> list = new ArrayList<>();
+     * for (int i = 0; i < moneyCount; i++) {
+     * int rndScore = DataManager.getRandom().nextInt(101);
+     * int finances = rndScore + 3 * factionEntity.getFinanceScore() - reducer * 7;
+     * 
+     * String jobCategory;
+     * String randomJob;
+     * 
+     * if (finances < 70) {
+     * jobCategory = "Low";
+     * randomJob =
+     * generateWeightedRandomGeneralJob(DataManager.getLowJobMappings());
+     * } else if (finances < 200) {
+     * jobCategory = "Mid";
+     * randomJob =
+     * generateWeightedRandomGeneralJob(DataManager.getMidJobMappings());
+     * } else if (finances < 350) {
+     * jobCategory = "High";
+     * randomJob =
+     * generateWeightedRandomGeneralJob(DataManager.getHighJobMappings());
+     * reducer += 1;
+     * } else {
+     * jobCategory = "Insane";
+     * randomJob =
+     * generateWeightedRandomGeneralJob(DataManager.getSuperJobMappings());
+     * reducer += 5;
+     * i += 2;
+     * }
+     * 
+     * factionEntity.getMoneySources().get(jobCategory).add(randomJob);
+     * list.add(randomJob);
+     * }
+     * 
+     * for (int i = 0; i < doctrineCount; i++) {
+     * doctrines[i] = DataManager.getDoctrines()[DataManager.getRandom()
+     * .nextInt(DataManager.getDoctrines().length)];
+     * doctrineStr.append(doctrines[i]).append(", ");
+     * }
+     * 
+     * return valuesStr.toString() + "\n" + moneyStr.toString() + String.join(", ",
+     * list) + "\n"
+     * + doctrineStr.toString();
+     * }
+     */
+
+    public String[] generateValues() {
         int valuesCount = Math.max(1,
                 Math.min(factionEntity.getSizeScale() / 10 + (int) (factionEntity.getIntensityScore() / 20), 7));
-        int moneyCount = Math.max(1,
-                Math.min((factionEntity.getSizeScale() + factionEntity.getFinanceScore()) / 20, 7));
-        int doctrineCount = Math.max(1, Math.min((int) (factionEntity.getIntensityScore() / 20), 5));
-
         String[] factionValues = new String[valuesCount];
-        factionEntity.setFactionValues(factionValues);
-        factionEntity.getMoneySources().clear();
-        String[] doctrines = new String[doctrineCount];
-        factionEntity.setDoctrines(doctrines);
-
-        factionEntity.getMoneySources().put("Low", new ArrayList<>());
-        factionEntity.getMoneySources().put("Mid", new ArrayList<>());
-        factionEntity.getMoneySources().put("High", new ArrayList<>());
-        factionEntity.getMoneySources().put("Insane", new ArrayList<>());
-
-        StringBuilder valuesStr = new StringBuilder("Their values are: \n");
-        StringBuilder moneyStr = new StringBuilder("They finance themselves by: \n");
-        StringBuilder doctrineStr = new StringBuilder("They teach: \n");
 
         for (int i = 0; i < valuesCount; i++) {
             factionValues[i] = DataManager.getVirtues()[DataManager.getRandom()
                     .nextInt(DataManager.getVirtues().length)];
-            valuesStr.append(factionValues[i]).append(", ");
         }
-
-        int reducer = 0;
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < moneyCount; i++) {
-            int rndScore = DataManager.getRandom().nextInt(101);
-            int finances = rndScore + 3 * factionEntity.getFinanceScore() - reducer * 7;
-
-            String jobCategory;
-            String randomJob;
-
-            if (finances < 70) {
-                jobCategory = "Low";
-                randomJob = generateWeightedRandomGeneralJob(DataManager.getLowJobMappings());
-            } else if (finances < 200) {
-                jobCategory = "Mid";
-                randomJob = generateWeightedRandomGeneralJob(DataManager.getMidJobMappings());
-            } else if (finances < 350) {
-                jobCategory = "High";
-                randomJob = generateWeightedRandomGeneralJob(DataManager.getHighJobMappings());
-                reducer += 1;
-            } else {
-                jobCategory = "Insane";
-                randomJob = generateWeightedRandomGeneralJob(DataManager.getSuperJobMappings());
-                reducer += 5;
-                i += 2;
-            }
-
-            factionEntity.getMoneySources().get(jobCategory).add(randomJob);
-            list.add(randomJob);
-        }
-
-        for (int i = 0; i < doctrineCount; i++) {
-            doctrines[i] = DataManager.getDoctrines()[DataManager.getRandom()
-                    .nextInt(DataManager.getDoctrines().length)];
-            doctrineStr.append(doctrines[i]).append(", ");
-        }
-
-        return valuesStr.toString() + "\n" + moneyStr.toString() + String.join(", ", list) + "\n"
-                + doctrineStr.toString();
-    } */
-
-
-
-
-    public String[] generateValues() {
-        int valuesCount = Math.max(1, Math.min(factionEntity.getSizeScale() / 10 + (int) (factionEntity.getIntensityScore() / 20), 7));
-        String[] factionValues = new String[valuesCount];
-    
-        for (int i = 0; i < valuesCount; i++) {
-            factionValues[i] = DataManager.getVirtues()[DataManager.getRandom().nextInt(DataManager.getVirtues().length)];
-        }
-        return factionValues;  // Returns an array of generated values
+        return factionValues; // Returns an array of generated values
     }
 
     public Map<String, List<String>> generateMoneySources() {
-        int moneyCount = Math.max(1, Math.min((factionEntity.getSizeScale() + factionEntity.getFinanceScore()) / 20, 7));
+        int moneyCount = Math.max(1,
+                Math.min((factionEntity.getSizeScale() + factionEntity.getFinanceScore()) / 20, 7));
         Map<String, List<String>> moneySources = new HashMap<>();
         moneySources.put("Low", new ArrayList<>());
         moneySources.put("Mid", new ArrayList<>());
         moneySources.put("High", new ArrayList<>());
         moneySources.put("Insane", new ArrayList<>());
-    
+
         int reducer = 0;
         for (int i = 0; i < moneyCount; i++) {
             int rndScore = DataManager.getRandom().nextInt(101);
             int finances = rndScore + 3 * factionEntity.getFinanceScore() - reducer * 7;
-    
+
             String jobCategory;
             String randomJob;
-    
+
             if (finances < 70) {
                 jobCategory = "Low";
                 randomJob = generateWeightedRandomGeneralJob(DataManager.getLowJobMappings());
@@ -325,63 +351,68 @@ public class FactionGenerator {
                 jobCategory = "Insane";
                 randomJob = generateWeightedRandomGeneralJob(DataManager.getSuperJobMappings());
                 reducer += 5;
-                i += 2;  // Skip the next two money sources
+                i += 2; // Skip the next two money sources
             }
-    
+
             moneySources.get(jobCategory).add(randomJob);
         }
-    
-        return moneySources;  // Returns a map of money sources
+
+        return moneySources; // Returns a map of money sources
     }
 
     public String[] generateDoctrines() {
         int doctrineCount = Math.max(1, Math.min((int) (factionEntity.getIntensityScore() / 20), 5));
         String[] doctrines = new String[doctrineCount];
-    
+
         for (int i = 0; i < doctrineCount; i++) {
-            doctrines[i] = DataManager.getDoctrines()[DataManager.getRandom().nextInt(DataManager.getDoctrines().length)];
+            doctrines[i] = DataManager.getDoctrines()[DataManager.getRandom()
+                    .nextInt(DataManager.getDoctrines().length)];
         }
-        return doctrines;  // Returns an array of generated doctrines
+        return doctrines; // Returns an array of generated doctrines
     }
 
-
-
-
-
-
-    /*public String generateStandings() {
-        adjustScores();
-        int magicIndex = Math.min(Math.max(0,
-                (int) Math.round((double) factionEntity.getMagicScore() / 10) + DataManager.getRandom().nextInt(-1, 2)),
-                DataManager.getWealth().length - 1);
-        int intensityIndex = Math.min(
-                Math.max(0,
-                        (int) (factionEntity.getIntensityScore() / 20) - 1 + DataManager.getRandom().nextInt(-1, 2)),
-                DataManager.getIntensity().length - 1);
-        int scaleIndex = Math.min(Math.max(0,
-                (int) Math.round((double) factionEntity.getSizeScale() / 5) + DataManager.getRandom().nextInt(-1, 2)),
-                DataManager.getSize().length - 1);
-        int militaryIndex = Math.min(
-                Math.max(0,
-                        (int) Math.round((double) factionEntity.getMilitaristicScore() / 10)
-                                + DataManager.getRandom().nextInt(-1, 2)),
-                DataManager.getMilitaryInclination().length - 1);
-        int financeIndex = Math.min(Math.max(0, (int) Math.round((double) factionEntity.getFinanceScore() / 10)
-                + DataManager.getRandom().nextInt(-1, 2)), DataManager.getWealth().length - 1);
-        int reputationIndex = Math.min(Math.max(0, (int) Math.round((double) factionEntity.getReputationScore() / 10)
-                + DataManager.getRandom().nextInt(-1, 2)), DataManager.getReputation().length - 1);
-
-        String[] standingsArray = new String[6];
-        factionEntity.setStandingsArray(standingsArray);
-        standingsArray[0] = DataManager.getMagicalInclination()[magicIndex];
-        standingsArray[1] = DataManager.getMilitaryInclination()[militaryIndex];
-        standingsArray[2] = DataManager.getWealth()[financeIndex];
-        standingsArray[3] = DataManager.getSize()[scaleIndex];
-        standingsArray[4] = DataManager.getIntensity()[intensityIndex];
-        standingsArray[5] = DataManager.getReputation()[reputationIndex];
-
-        return String.join("\n", standingsArray);
-    }*/
+    /*
+     * public String generateStandings() {
+     * adjustScores();
+     * int magicIndex = Math.min(Math.max(0,
+     * (int) Math.round((double) factionEntity.getMagicScore() / 10) +
+     * DataManager.getRandom().nextInt(-1, 2)),
+     * DataManager.getWealth().length - 1);
+     * int intensityIndex = Math.min(
+     * Math.max(0,
+     * (int) (factionEntity.getIntensityScore() / 20) - 1 +
+     * DataManager.getRandom().nextInt(-1, 2)),
+     * DataManager.getIntensity().length - 1);
+     * int scaleIndex = Math.min(Math.max(0,
+     * (int) Math.round((double) factionEntity.getSizeScale() / 5) +
+     * DataManager.getRandom().nextInt(-1, 2)),
+     * DataManager.getSize().length - 1);
+     * int militaryIndex = Math.min(
+     * Math.max(0,
+     * (int) Math.round((double) factionEntity.getMilitaristicScore() / 10)
+     * + DataManager.getRandom().nextInt(-1, 2)),
+     * DataManager.getMilitaryInclination().length - 1);
+     * int financeIndex = Math.min(Math.max(0, (int) Math.round((double)
+     * factionEntity.getFinanceScore() / 10)
+     * + DataManager.getRandom().nextInt(-1, 2)), DataManager.getWealth().length -
+     * 1);
+     * int reputationIndex = Math.min(Math.max(0, (int) Math.round((double)
+     * factionEntity.getReputationScore() / 10)
+     * + DataManager.getRandom().nextInt(-1, 2)), DataManager.getReputation().length
+     * - 1);
+     * 
+     * String[] standingsArray = new String[6];
+     * factionEntity.setStandingsArray(standingsArray);
+     * standingsArray[0] = DataManager.getMagicalInclination()[magicIndex];
+     * standingsArray[1] = DataManager.getMilitaryInclination()[militaryIndex];
+     * standingsArray[2] = DataManager.getWealth()[financeIndex];
+     * standingsArray[3] = DataManager.getSize()[scaleIndex];
+     * standingsArray[4] = DataManager.getIntensity()[intensityIndex];
+     * standingsArray[5] = DataManager.getReputation()[reputationIndex];
+     * 
+     * return String.join("\n", standingsArray);
+     * }
+     */
 
     private void adjustScores() {
         int highestScore = Math.max(factionEntity.getMagicScore(), Math.max(factionEntity.getSizeScale(),

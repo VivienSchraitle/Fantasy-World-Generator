@@ -22,6 +22,7 @@
         <frontend-maven-plugin.version>1.12.1</frontend-maven-plugin.version>
         <react.version>18.2.0</react.version>
     </properties>
+    
 
     <dependencies>
 
@@ -45,6 +46,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
         </dependency>
 
         <!-- Spring Boot Devtools for hot reload during development -->
@@ -74,10 +79,10 @@
             <artifactId>spring-security-oauth2-jose</artifactId>
         </dependency>   
         <dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
 
         <!-- Jackson (Spring's default JSON library) -->
         <dependency>

@@ -109,45 +109,48 @@ public class FactionGenerator {
         int intensityLevel = (int) (factionEntity.getIntensityScore() / 20);
         int assignedLeaders = 0; // Initialize number of leaders to return
         String leadershipType; // Initialize leadership type to return
-
-        if (intensityLevel == 1) {
-            if (rndScore < 25) {
-                leadershipType = DataManager.getSourceOfPower()[0]; // Anarchistic
-            } else if (rndScore <= 58) {
-                assignedLeaders = DataManager.getRandom().nextInt(5, factionEntity.getSizeScale() * 4 + 5);
-                leadershipType = DataManager.getSourceOfPower()[1]; // Democratic
-            } else if (rndScore <= 90) {
-                assignedLeaders = DataManager.getRandom().nextInt(3, factionEntity.getSizeScale() / 5 + 3);
-                leadershipType = DataManager.getSourceOfPower()[2]; // Oligarchic
-            } else {
-                assignedLeaders = 1;
-                leadershipType = DataManager.getSourceOfPower()[3]; // Autocratic
+        switch (intensityLevel) {
+            case 1 -> {
+                if (rndScore < 25) {
+                    leadershipType = DataManager.getSourceOfPower()[0]; // Anarchistic
+                } else if (rndScore <= 58) {
+                    assignedLeaders = DataManager.getRandom().nextInt(5, factionEntity.getSizeScale() * 4 + 5);
+                    leadershipType = DataManager.getSourceOfPower()[1]; // Democratic
+                } else if (rndScore <= 90) {
+                    assignedLeaders = DataManager.getRandom().nextInt(3, factionEntity.getSizeScale() / 5 + 3);
+                    leadershipType = DataManager.getSourceOfPower()[2]; // Oligarchic
+                } else {
+                    assignedLeaders = 1;
+                    leadershipType = DataManager.getSourceOfPower()[3]; // Autocratic
+                }
             }
-        } else if (intensityLevel == 2) {
-            if (rndScore < 10) {
-                leadershipType = DataManager.getSourceOfPower()[0]; // Anarchistic
-            } else if (rndScore <= 40) {
-                assignedLeaders = DataManager.getRandom().nextInt(5, factionEntity.getSizeScale() * 4 + 5);
-                leadershipType = DataManager.getSourceOfPower()[1]; // Democratic
-            } else if (rndScore <= 80) {
-                assignedLeaders = DataManager.getRandom().nextInt(3, factionEntity.getSizeScale() / 5 + 3);
-                leadershipType = DataManager.getSourceOfPower()[2]; // Oligarchic
-            } else {
-                assignedLeaders = 1;
-                leadershipType = DataManager.getSourceOfPower()[3]; // Autocratic
+            case 2 -> {
+                if (rndScore < 10) {
+                    leadershipType = DataManager.getSourceOfPower()[0]; // Anarchistic
+                } else if (rndScore <= 40) {
+                    assignedLeaders = DataManager.getRandom().nextInt(5, factionEntity.getSizeScale() * 4 + 5);
+                    leadershipType = DataManager.getSourceOfPower()[1]; // Democratic
+                } else if (rndScore <= 80) {
+                    assignedLeaders = DataManager.getRandom().nextInt(3, factionEntity.getSizeScale() / 5 + 3);
+                    leadershipType = DataManager.getSourceOfPower()[2]; // Oligarchic
+                } else {
+                    assignedLeaders = 1;
+                    leadershipType = DataManager.getSourceOfPower()[3]; // Autocratic
+                }
             }
-        } else {
-            if (rndScore < 5) {
-                leadershipType = DataManager.getSourceOfPower()[0]; // Anarchistic
-            } else if (rndScore <= 30) {
-                assignedLeaders = DataManager.getRandom().nextInt(5, factionEntity.getSizeScale() * 4 + 5);
-                leadershipType = DataManager.getSourceOfPower()[1]; // Democratic
-            } else if (rndScore <= 60) {
-                assignedLeaders = DataManager.getRandom().nextInt(3, factionEntity.getSizeScale() / 5 + 3);
-                leadershipType = DataManager.getSourceOfPower()[2]; // Oligarchic
-            } else {
-                assignedLeaders = 1;
-                leadershipType = DataManager.getSourceOfPower()[3]; // Autocratic
+            default -> {
+                if (rndScore < 5) {
+                    leadershipType = DataManager.getSourceOfPower()[0]; // Anarchistic
+                } else if (rndScore <= 30) {
+                    assignedLeaders = DataManager.getRandom().nextInt(5, factionEntity.getSizeScale() * 4 + 5);
+                    leadershipType = DataManager.getSourceOfPower()[1]; // Democratic
+                } else if (rndScore <= 60) {
+                    assignedLeaders = DataManager.getRandom().nextInt(3, factionEntity.getSizeScale() / 5 + 3);
+                    leadershipType = DataManager.getSourceOfPower()[2]; // Oligarchic
+                } else {
+                    assignedLeaders = 1;
+                    leadershipType = DataManager.getSourceOfPower()[3]; // Autocratic
+                }
             }
         }
 
@@ -192,38 +195,39 @@ public class FactionGenerator {
             default -> -300;
         };
 
-        if (helper == 0) {
-            // Generate democratic voting system details
-            String powerType = DataManager.getVotingType()[DataManager.getRandom()
-                    .nextInt(DataManager.getVotingType().length)];
-            String votingSystem = DataManager.getOliDemoVotingResults()[DataManager.getRandom()
-                    .nextInt(DataManager.getOliDemoVotingResults().length)];
-
-            powerParameters.put("PowerType", powerType);
-            powerParameters.put("VotingSystem", votingSystem);
-
-        } else if (helper == 1) {
-            // Generate oligarchic voting system details
-            String powerType = DataManager.getOliType()[DataManager.getRandom()
-                    .nextInt(DataManager.getOliType().length)];
-            String votingSystem = DataManager.getOliDemoVotingResults()[DataManager.getRandom()
-                    .nextInt(DataManager.getOliDemoVotingResults().length)];
-
-            powerParameters.put("PowerType", powerType);
-            powerParameters.put("VotingSystem", votingSystem);
-
-        } else if (helper == 2) {
-            // Generate autocratic leadership details
-            String powerType = DataManager.getAutocracyType()[DataManager.getRandom()
-                    .nextInt(DataManager.getAutocracyType().length)];
-
-            powerParameters.put("PowerType", powerType);
-            powerParameters.put("VotingSystem", "N/A"); // Autocracy doesn't have voting
-
-        } else if (helper == -1) {
-            // Handle anarchistic system
-            powerParameters.put("PowerType", "Anarchistic communion");
-            powerParameters.put("VotingSystem", "N/A");
+        switch (helper) {
+            case 0 ->                 {
+                    // Generate democratic voting system details
+                    String powerType = DataManager.getVotingType()[DataManager.getRandom()
+                            .nextInt(DataManager.getVotingType().length)];
+                    String votingSystem = DataManager.getOliDemoVotingResults()[DataManager.getRandom()
+                            .nextInt(DataManager.getOliDemoVotingResults().length)];
+                    powerParameters.put("PowerType", powerType);
+                    powerParameters.put("VotingSystem", votingSystem);
+                }
+            case 1 ->                 {
+                    // Generate oligarchic voting system details
+                    String powerType = DataManager.getOliType()[DataManager.getRandom()
+                            .nextInt(DataManager.getOliType().length)];
+                    String votingSystem = DataManager.getOliDemoVotingResults()[DataManager.getRandom()
+                            .nextInt(DataManager.getOliDemoVotingResults().length)];
+                    powerParameters.put("PowerType", powerType);
+                    powerParameters.put("VotingSystem", votingSystem);
+                }
+            case 2 ->                 {
+                    // Generate autocratic leadership details
+                    String powerType = DataManager.getAutocracyType()[DataManager.getRandom()
+                            .nextInt(DataManager.getAutocracyType().length)];
+                    powerParameters.put("PowerType", powerType);
+                    powerParameters.put("VotingSystem", "N/A"); // Autocracy doesn't have voting
+                }
+            case -1 -> {
+                // Handle anarchistic system
+                powerParameters.put("PowerType", "Anarchistic communion");
+                powerParameters.put("VotingSystem", "N/A");
+            }
+            default -> {
+            }
         }
 
         return powerParameters;

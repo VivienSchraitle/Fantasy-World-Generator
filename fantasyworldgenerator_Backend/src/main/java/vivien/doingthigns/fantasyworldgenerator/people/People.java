@@ -248,7 +248,7 @@ public class People implements Serializable{
         traitList.addAll(Arrays.asList(getSingleElementFromEachArrayOptional(person.getAncestry().getOptionalSpecialTraits())));
         traitList.addAll(Arrays.asList(getSingleElementFromEachArrayOptional(person.getHeritage().getOptionalSpecialTraits())));
 
-        person.setSpecialTraits(traitList.toArray(new String[0]));
+        person.setSpecialTraits(traitList.toArray(String[]::new));
         person.setAge(DataManager.getRandom().nextInt(person.getAncestry().getMatureAge(), person.getAncestry().getMaxAge()));
         person.setSize(person.getAncestry().getSizeAvg() + DataManager.getRandom().nextInt((int) (person.getAncestry().getSizeDev() * 10)) / 10.0f);
     }

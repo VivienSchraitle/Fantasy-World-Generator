@@ -117,7 +117,7 @@ public class FactionController {
 
             //return ResponseEntity.internalServerError().body("unexplained error");
 
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             logger.error("Error generating field for faction", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }

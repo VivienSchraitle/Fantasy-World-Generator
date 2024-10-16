@@ -51,9 +51,7 @@ public class FactionBuilder {
         secondHeritage = inputParts[numParameters - 1]; // Secondary Ancestry
         parts = new String[inputParts.length-2];
         if (validateParameters(inputParts)) {
-            for (int i = 0; i < inputParts.length-2; i++) {
-                parts[i] = inputParts[i];
-            }
+            System.arraycopy(inputParts, 0, parts, 0, inputParts.length-2);
         } else {
             throw new IllegalArgumentException("Invalid parameters provided.");
         }

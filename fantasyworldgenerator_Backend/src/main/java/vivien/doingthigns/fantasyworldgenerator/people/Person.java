@@ -11,7 +11,6 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import vivien.doingthigns.fantasyworldgenerator.data.Ancestry;
-import vivien.doingthigns.fantasyworldgenerator.data.DataManager;
 import vivien.doingthigns.fantasyworldgenerator.data.Heritage;
 import vivien.doingthigns.fantasyworldgenerator.factiongenerator.Faction;
 

@@ -5,14 +5,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Serializable;
 import java.nio.file.Paths;
 import java.util.*;
 
@@ -155,39 +153,6 @@ public class DataManager {
                 random = new Random(Objects.hash(seed));
         }
 
-        @Getter
-        @Setter
-        public static class Ancestry implements Serializable {
-                private String name;
-                private int lh;
-                private float sizeAvg;
-                public float sizeDev;
-                private String[] skinColor;
-                private String[] undertones;
-                private String[] hairColor;
-                private String[] hairstyles;
-                private String[] eyeColor;
-                private String[][] optionalSpecialTraits;
-                private String[][] certainSpecialTraits;
-                private String[] heritage;
-                private int maxAge;
-                private int matureAge;
-        }
-
-        @Getter
-        @Setter
-        public static class Heritage implements Serializable {
-                private String name;
-                private int lh;
-                private String[] skinColor;
-                private String[] undertones;
-                private String[] hairColor;
-                private String[] hairstyles;
-                private String[] eyeColor;
-                private String[][] optionalSpecialTraits;
-                private String[][] certainSpecialTraits;
-        }
-
         public static void loadFactionData() {
                 ObjectMapper objectMapper = new ObjectMapper();
                 try {
@@ -321,41 +286,41 @@ public class DataManager {
                                         Map<String, JsonNode> ancestryJson = jsonObjects.get(i);
                                         Ancestry ancestry = new Ancestry();
 
-                                        ancestry.name = ancestryJson.get("Name").asText("Unknown");
-                                        ancestry.lh = ancestryJson.get("LH").asInt(0);
-                                        ancestry.sizeAvg = ancestryJson.get("SizeAvg").floatValue();
+                                        ancestry.setName(ancestryJson.get("Name").asText("Unknown"));
+                                        ancestry.setLh(ancestryJson.get("LH").asInt(0));
+                                        ancestry.setSizeAvg(ancestryJson.get("SizeAvg").floatValue());
                                         ancestry.sizeDev = ancestryJson.get("SizeDev").floatValue();
-                                        ancestry.skinColor = resolveDefaults(
+                                        ancestry.setSkinColor(resolveDefaults(
                                                         deserializeJsonArray(objectMapper,
                                                                         ancestryJson.get("SkinColor")),
-                                                        defaultSkinColor);
-                                        ancestry.undertones = resolveDefaults(
+                                                        defaultSkinColor));
+                                        ancestry.setUndertones(resolveDefaults(
                                                         deserializeJsonArray(objectMapper,
                                                                         ancestryJson.get("Undertones")),
-                                                        defaultUndertones);
-                                        ancestry.hairColor = resolveDefaults(
+                                                        defaultUndertones));
+                                        ancestry.setHairColor(resolveDefaults(
                                                         deserializeJsonArray(objectMapper,
                                                                         ancestryJson.get("HairColor")),
-                                                        defaultHairColor);
-                                        ancestry.hairstyles = resolveDefaults(
+                                                        defaultHairColor));
+                                        ancestry.setHairstyles(resolveDefaults(
                                                         deserializeJsonArray(objectMapper,
                                                                         ancestryJson.get("Hairstyles")),
-                                                        defaultHairstyles);
-                                        ancestry.eyeColor = resolveDefaults(
+                                                        defaultHairstyles));
+                                        ancestry.setEyeColor(resolveDefaults(
                                                         deserializeJsonArray(objectMapper,
                                                                         ancestryJson.get("EyeColor")),
-                                                        defaultEyeColor);
-                                        ancestry.optionalSpecialTraits = deserializeSpecialTraits(objectMapper,
-                                                        ancestryJson.get("OptionalSpecialTraits"));
-                                        ancestry.certainSpecialTraits = deserializeSpecialTraits(objectMapper,
-                                                        ancestryJson.get("CertainSpecialTraits"));
-                                        ancestry.heritage = deserializeJsonArray(objectMapper,
-                                                        ancestryJson.get("Heritage"));
-                                        ancestry.maxAge = ancestryJson.get("MaxAge").asInt(0);
-                                        ancestry.matureAge = ancestryJson.get("MatureAge").asInt(0);
+                                                        defaultEyeColor));
+                                        ancestry.setOptionalSpecialTraits(deserializeSpecialTraits(objectMapper,
+                                                        ancestryJson.get("OptionalSpecialTraits")));
+                                        ancestry.setCertainSpecialTraits(deserializeSpecialTraits(objectMapper,
+                                                        ancestryJson.get("CertainSpecialTraits")));
+                                        ancestry.setHeritage(deserializeJsonArray(objectMapper,
+                                                        ancestryJson.get("Heritage")));
+                                        ancestry.setMaxAge(ancestryJson.get("MaxAge").asInt(0));
+                                        ancestry.setMatureAge(ancestryJson.get("MatureAge").asInt(0));
 
-                                        expandSpecialTraits(ancestry.optionalSpecialTraits);
-                                        expandSpecialTraits(ancestry.certainSpecialTraits);
+                                        expandSpecialTraits(ancestry.getOptionalSpecialTraits());
+                                        expandSpecialTraits(ancestry.getCertainSpecialTraits());
 
                                         ancestries.add(ancestry);
                                 }
@@ -398,35 +363,35 @@ public class DataManager {
                                         Map<String, JsonNode> heritageJson = jsonObjects.get(i);
                                         Heritage heritage = new Heritage();
 
-                                        heritage.name = heritageJson.get("Name").asText("Unknown");
-                                        heritage.lh = heritageJson.get("LH").asInt(0);
-                                        heritage.skinColor = resolveDefaults(
+                                        heritage.setName(heritageJson.get("Name").asText("Unknown"));
+                                        heritage.setLh(heritageJson.get("LH").asInt(0));
+                                        heritage.setSkinColor(resolveDefaults(
                                                         deserializeJsonArray(objectMapper,
                                                                         heritageJson.get("SkinColor")),
-                                                        defaultSkinColor);
-                                        heritage.undertones = resolveDefaults(
+                                                        defaultSkinColor));
+                                        heritage.setUndertones(resolveDefaults(
                                                         deserializeJsonArray(objectMapper,
                                                                         heritageJson.get("Undertones")),
-                                                        defaultUndertones);
-                                        heritage.hairColor = resolveDefaults(
+                                                        defaultUndertones));
+                                        heritage.setHairColor(resolveDefaults(
                                                         deserializeJsonArray(objectMapper,
                                                                         heritageJson.get("HairColor")),
-                                                        defaultHairColor);
-                                        heritage.hairstyles = resolveDefaults(
+                                                        defaultHairColor));
+                                        heritage.setHairstyles(resolveDefaults(
                                                         deserializeJsonArray(objectMapper,
                                                                         heritageJson.get("Hairstyles")),
-                                                        defaultHairstyles);
-                                        heritage.eyeColor = resolveDefaults(
+                                                        defaultHairstyles));
+                                        heritage.setEyeColor(resolveDefaults(
                                                         deserializeJsonArray(objectMapper,
                                                                         heritageJson.get("EyeColor")),
-                                                        defaultEyeColor);
-                                        heritage.optionalSpecialTraits = deserializeSpecialTraits(objectMapper,
-                                                        heritageJson.get("OptionalSpecialTraits"));
-                                        heritage.certainSpecialTraits = deserializeSpecialTraits(objectMapper,
-                                                        heritageJson.get("CertainSpecialTraits"));
+                                                        defaultEyeColor));
+                                        heritage.setOptionalSpecialTraits(deserializeSpecialTraits(objectMapper,
+                                                        heritageJson.get("OptionalSpecialTraits")));
+                                        heritage.setCertainSpecialTraits(deserializeSpecialTraits(objectMapper,
+                                                        heritageJson.get("CertainSpecialTraits")));
 
-                                        expandSpecialTraits(heritage.optionalSpecialTraits);
-                                        expandSpecialTraits(heritage.certainSpecialTraits);
+                                        expandSpecialTraits(heritage.getOptionalSpecialTraits());
+                                        expandSpecialTraits(heritage.getCertainSpecialTraits());
 
                                         heritages.add(heritage);
                                 }
@@ -441,15 +406,15 @@ public class DataManager {
         private static void convertAncestriesToHeritages() {
                 for (Ancestry ances : ancestries) {
                         Heritage heritage = new Heritage();
-                        heritage.name = ances.name;
-                        heritage.lh = ances.lh;
-                        heritage.certainSpecialTraits = ances.certainSpecialTraits;
-                        heritage.eyeColor = ances.eyeColor;
-                        heritage.hairColor = ances.hairColor;
-                        heritage.hairstyles = ances.hairstyles;
-                        heritage.optionalSpecialTraits = ances.optionalSpecialTraits;
-                        heritage.skinColor = ances.skinColor;
-                        heritage.undertones = ances.undertones;
+                        heritage.setName(ances.getName());
+                        heritage.setLh(ances.getLh());
+                        heritage.setCertainSpecialTraits(ances.getCertainSpecialTraits());
+                        heritage.setEyeColor(ances.getEyeColor());
+                        heritage.setHairColor(ances.getHairColor());
+                        heritage.setHairstyles(ances.getHairstyles());
+                        heritage.setOptionalSpecialTraits(ances.getOptionalSpecialTraits());
+                        heritage.setSkinColor(ances.getSkinColor());
+                        heritage.setUndertones(ances.getUndertones());
                         heritages.add(heritage);
                 }
         }

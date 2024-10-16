@@ -1,6 +1,8 @@
 package vivien.doingthigns.fantasyworldgenerator.people;
 
+import vivien.doingthigns.fantasyworldgenerator.data.Ancestry;
 import vivien.doingthigns.fantasyworldgenerator.data.DataManager;
+import vivien.doingthigns.fantasyworldgenerator.data.Heritage;
 import vivien.doingthigns.fantasyworldgenerator.factiongenerator.Faction;
 import java.io.File;
 import java.io.FileWriter;
@@ -20,8 +22,8 @@ public class People implements Serializable{
     private static final int MID_FINANCE_THRESHOLD = 200;
     private static final int HIGH_FINANCE_THRESHOLD = 350;
 
-    private DataManager.Ancestry ancestry;
-    private DataManager.Heritage heritage;
+    private Ancestry ancestry;
+    private Heritage heritage;
     private Faction localFaction;
 
     public int financeScore;
@@ -31,7 +33,7 @@ public class People implements Serializable{
         /// this is the main entrypoint to make factions
     public void populateFaction(Faction myFaction) {
         localFaction = myFaction;
-        List<Person> factionPeople = new ArrayList<>();
+        List<Person> factionPeople;
 
         if (!localFaction.getLeadership().equals("Anarchistic")) {
             factionPeople = generateFactionLeaders();
@@ -79,17 +81,11 @@ public class People implements Serializable{
         String leadership = localFaction.getLeadership();
         List<Person> leaders = new ArrayList<>();
         switch (leadership) {
-            case "Democratic":
-                leaders = handleDemocraticFaction();
-                break;
-            case "Oligarchic":
-                leaders.add(generatePerson("Oligarch", localFaction.getPowerType()));
-                break;
-            case "Autocratic":
-                leaders.add(generatePerson("Autocrat", localFaction.getPowerType()));
-                break;
-            default:
-                break;
+            case "Democratic" -> leaders = handleDemocraticFaction();
+            case "Oligarchic" -> leaders.add(generatePerson("Oligarch", localFaction.getPowerType()));
+            case "Autocratic" -> leaders.add(generatePerson("Autocrat", localFaction.getPowerType()));
+            default -> {
+            }
         }
         return leaders;
     }
@@ -176,18 +172,18 @@ public class People implements Serializable{
     }
 
     private String generateJobFromMapping(String moneySourceKey, Map<String, List<String>> jobMappings, int successRateThreshold, Person person) {
-        if (localFaction.getMoneySources().get(moneySourceKey).size() > 0) {
+        if (!localFaction.getMoneySources().get(moneySourceKey).isEmpty()) {
             String source = localFaction.getMoneySources().get(moneySourceKey).get(DataManager.getRandom().nextInt(localFaction.getMoneySources().get(moneySourceKey).size()));
             return jobMappings.get(source).get(DataManager.getRandom().nextInt(jobMappings.get(source).size()));
         }
         return generateNonFactionJob(person);
     }
 
-    public DataManager.Ancestry generateAncestry(Person person) {
+    public Ancestry generateAncestry(Person person) {
         int totalLikelihood = DataManager.getAncestries().stream().mapToInt(a -> a.getLh()).sum();
         int randomValue = DataManager.getRandom().nextInt(totalLikelihood);
 
-        for (DataManager.Ancestry a : DataManager.getAncestries()) {
+        for (Ancestry a : DataManager.getAncestries()) {
             randomValue -= a.getLh();
             if (randomValue < 0) {
                 ancestry = a;
@@ -198,14 +194,14 @@ public class People implements Serializable{
         return ancestry;
     }
 
-    public DataManager.Heritage generateHeritage(Person person) {
+    public Heritage generateHeritage(Person person) {
         int totalLikelihood = DataManager.getHeritages().stream().mapToInt(h -> h.getLh()).sum();
         int randomValue = DataManager.getRandom().nextInt(totalLikelihood);
 
         if (DataManager.getRandom().nextInt(101) < 50) {
             person.setHeritage(heritage = DataManager.getHeritages().stream().filter(h -> h.getName().equals(person.getAncestry().getName())).findFirst().orElse(null));
         } else {
-            for (DataManager.Heritage h : DataManager.getHeritages()) {
+            for (Heritage h : DataManager.getHeritages()) {
                 randomValue -= h.getLh();
                 if (randomValue < 0) {
                     heritage = h;

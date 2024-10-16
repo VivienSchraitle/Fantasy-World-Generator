@@ -1,8 +1,5 @@
 package vivien.doingthigns.fantasyworldgenerator.factiongenerator;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-
 import java.util.*;
 
 
@@ -15,7 +12,6 @@ import jakarta.persistence.PersistenceContext;
 import lombok.Getter;
 import lombok.Setter;
 import vivien.doingthigns.fantasyworldgenerator.data.DataManager;
-import vivien.doingthigns.fantasyworldgenerator.people.People;
 import org.springframework.transaction.annotation.Transactional;
 
 @Setter
@@ -40,7 +36,7 @@ public class FactionBuilder {
     private String[] parts = {};
     private Map<String, List<String>> moneySources;
     private final int numParameters = 11;
-
+    @Getter
     private Faction myFaction;
     private FactionGenerator factionGenerator;
 

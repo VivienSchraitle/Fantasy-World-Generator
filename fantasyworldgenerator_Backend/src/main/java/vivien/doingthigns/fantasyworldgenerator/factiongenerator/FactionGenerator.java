@@ -2,7 +2,6 @@ package vivien.doingthigns.fantasyworldgenerator.factiongenerator;
 
 import java.util.*;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import lombok.Getter;
@@ -109,7 +108,7 @@ public class FactionGenerator {
         int rndScore = DataManager.getRandom().nextInt(100);
         int intensityLevel = (int) (factionEntity.getIntensityScore() / 20);
         int assignedLeaders = 0; // Initialize number of leaders to return
-        String leadershipType = ""; // Initialize leadership type to return
+        String leadershipType; // Initialize leadership type to return
 
         if (intensityLevel == 1) {
             if (rndScore < 25) {

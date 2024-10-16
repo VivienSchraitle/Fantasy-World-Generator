@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import vivien.doingthigns.fantasyworldgenerator.data.DataManager;
-import vivien.doingthigns.fantasyworldgenerator.data.DataManager.Heritage;
+import vivien.doingthigns.fantasyworldgenerator.data.Heritage;
 
 import java.util.List;
 

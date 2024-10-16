@@ -3,13 +3,11 @@ package vivien.doingthigns.fantasyworldgenerator.factiongenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lombok.Getter;
-import lombok.Setter;
+
 import vivien.doingthigns.fantasyworldgenerator.config.repositories.FactionRepository;
 
 import java.util.Optional;
 
-import org.aspectj.weaver.ast.Or;
 
 @Service
 public class FactionService {

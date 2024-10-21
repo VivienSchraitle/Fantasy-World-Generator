@@ -144,6 +144,9 @@ public class DataManager {
         @Setter
         @Getter
         private static String[] temperature;
+        @Setter
+        @Getter
+        private static Map <String,Map<String, List<String>>> smellMap;
 
         static {
                 random = new Random();
@@ -221,6 +224,8 @@ public class DataManager {
                                         new File(path, "fantasyworldgenerator_Backend/JSONs/Helpers/Weather/Temperature.JSON"));
                         wind = deserializeJsonArray(objectMapper,
                                         new File(path, "fantasyworldgenerator_Backend/JSONs/Helpers/Weather/Wind.JSON"));
+                        smellMap = deserializeJsonMapMap(objectMapper,
+                                        new File(path, "fantasyworldgenerator_Backend/JSONs/Helpers/Ambiance/Smells.JSON"));
                 } catch (JsonProcessingException e) {
                         System.err.println("Error during JSON deserialization: " + e.getMessage());
                         System.exit(0);
@@ -228,6 +233,7 @@ public class DataManager {
                         System.err.println("File I/O error: " + e.getMessage());
                         System.exit(0);
                 }
+
         }
 
         public static void loadPeopleData() {
@@ -439,6 +445,12 @@ public class DataManager {
         private static Map<String, List<String>> deserializeJsonMap(ObjectMapper objectMapper, File file)
                         throws IOException {
                 return objectMapper.readValue(file, new TypeReference<Map<String, List<String>>>() {
+                });
+        }
+
+        private static Map <String,Map<String, List<String>>> deserializeJsonMapMap(ObjectMapper objectMapper, File file)
+                        throws IOException {
+                return objectMapper.readValue(file, new TypeReference<Map <String,Map<String, List<String>>>>() {
                 });
         }
 
